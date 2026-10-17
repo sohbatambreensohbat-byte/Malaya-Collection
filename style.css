@@ -37,12 +37,12 @@ button {
 /* Navigation */
 
 .navbar {
-  position: absolute;
+  position: fixed;
   z-index: 5;
   top: 0;
   left: 0;
   width: 100%;
-  padding: 24px 6%;
+  /* padding: 24px 6%; */
   display: flex;
   justify-content: space-between;
   align-items: center;
