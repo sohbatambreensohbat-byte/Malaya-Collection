@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Malaya Collection 18 – handwoven sampin tenun manual. Classic, premium and wedding designs.">
+  <title>Sampin Tenun Manual | Malaya Collection 18</title>
+
+  <style>
+    :root {
+      --bg: #090909;
+      --card: #161616;
+      --gold: #d4af37;
+      --gold-dark: #493b19;
+      --text: #fff;
+      --muted: #bbb;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Segoe UI", Arial, sans-serif;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+    }
+
+    /* ---------- Header ---------- */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding: 14px 6%;
+      background: rgba(9, 9, 9, .95);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--gold-dark);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--gold);
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .logo img {
+      width: 35px;
+      height: 40px;
+      object-fit: contain;
+    }
+
+    .navbar nav {
+      display: flex;
+      gap: 22px;
+    }
+
+    .navbar nav a {
+      color: var(--muted);
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+      transition: color .2s, border-color .2s;
+    }
+
+    .navbar nav a:hover {
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+
+    /* ---------- Layout ---------- */
+    section {
+      padding: 50px 6%;
+    }
+
+    h2 {
+      text-align: center;
+      color: var(--gold);
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      text-align: center;
+      padding: 70px 6% 40px;
+    }
+
+    .hero h1 {
+      color: var(--gold);
+      font-size: clamp(28px, 5vw, 48px);
+      letter-spacing: 3px;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto 24px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 11px 26px;
+      border: 1px solid var(--gold);
+      border-radius: 4px;
+      background: var(--gold);
+      color: #111;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background .2s, color .2s;
+    }
+
+    .btn:hover {
+      background: transparent;
+      color: var(--gold);
+    }
+
+    .btn.outline {
+      background: transparent;
+      color: var(--gold);
+    }
+
+    .btn.outline:hover {
+      background: var(--gold);
+      color: #111;
+    }
+
+    /* ---------- Categories ---------- */
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .category-card {
+      background: var(--card);
+      border: 1px solid var(--gold-dark);
+      border-radius: 6px;
+      overflow: hidden;
+      transition: transform .25s, border-color .25s;
+    }
+
+    .category-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold);
+    }
+
+    .category-card img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+    }
+
+    .category-info {
+      padding: 20px;
+    }
+
+    .category-info h3 {
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .category-info p,
+    .product-info p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ---------- Filters ---------- */
+    .filters {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .filters button,
+    .pagination button {
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--gold-dark);
+      border-radius: 4px;
+      padding: 8px 16px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background .2s, color .2s, border-color .2s;
+    }
+
+    .filters button:hover,
+    .pagination button:hover:not(:disabled) {
+      border-color: var(--gold);
+    }
+
+    .filters button.active,
+    .pagination button.active {
+      background: var(--gold);
+      color: #111;
+      border-color: var(--gold);
+      font-weight: bold;
+    }
+
+    /* ---------- Products ---------- */
+    .products {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .product-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--card);
+      border: 1px solid #40351d;
+      border-radius: 5px;
+      overflow: hidden;
+      transition: transform .25s, border-color .25s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      background: #222;
+    }
+
+    .product-info {
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .product-info h3 {
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+
+    .price {
+      color: var(--gold);
+      font-weight: bold;
+      margin: 10px 0 12px;
+    }
+
+    .product-info .btn {
+      margin-top: auto;
+      text-align: center;
+      padding: 8px;
+      font-size: 13px;
+    }
+
+    .empty {
+      text-align: center;
+      color: var(--muted);
+      grid-column: 1 / -1;
+      padding: 30px 0;
+    }
+
+    /* ---------- Pagination ---------- */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 36px;
+    }
+
+    .pagination button:disabled {
+      opacity: .4;
+      cursor: not-allowed;
+    }
+
+    /* ---------- About / Contact ---------- */
+    .about p,
+    .contact p {
+      max-width: 640px;
+      margin: 0 auto 20px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px 6%;
+      border-top: 1px solid var(--gold-dark);
+      color: #777;
+      font-size: 13px;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 1100px) {
+      .products {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 900px) {
+      .products {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .category-card img {
+        height: 250px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .navbar {
+        justify-content: center;
+      }
+
+      .logo {
+        font-size: 16px;
+      }
+
+      .navbar nav {
+        gap: 14px;
+      }
+
+      .categories {
+        grid-template-columns: 1fr;
+      }
+
+      .products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      section {
+        padding: 34px 4%;
+      }
+
+      .category-card img {
+        height: 300px;
+      }
+
+      .product-card img {
+        height: 190px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="navbar">
+    <a href="#home" class="logo">
+      <img src="../assets/images/logo.jpeg" alt="Malaya Collection Logo" width="35" height="40">
+      <span>MALAYA COLLECTION 18</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#collections">Collections</a>
+      <a href="#designs">Designs</a>
+      <a href="#about">Our Craft</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <h1>SAMPIN TENUN MANUAL</h1>
+      <p>Handwoven sampin crafted with care, blending heritage patterns with refined detail.</p>
+      <a href="#designs" class="btn">View Designs</a>
+    </section>
+
+    <!-- Main categories -->
+    <section id="collections">
+      <h2>Our Main Collections</h2>
+      <p class="section-sub">Three collections for every occasion.</p>
+
+      <div class="categories">
+        <article class="category-card">
+          <img src="../assets/classicsampin/IMG-20261014-WA0134.jpg" alt="Classic Sampin" loading="lazy">
+          <div class="category-info">
+            <h3>Classic Design 01</h3>
+            <h3>RM 49.99</h3>
+
+          </div>
+        </article>
+
+        <article class="category-card">
+          <img src="../assets/classicsampin/IMG-20261014-WA0135.jpg" alt="Premium Tenun" loading="lazy">
+          <div class="category-info">
+            <h3>Classic Design 02 </h3>
+            <h3>RM 49.99</h3>
+          </div>
+        </article>
+
+        <article class="category-card">
+          <img src="../assets/classicsampin/IMG-20261014-WA0142.jpg" alt="Wedding and Occasion Collection"
+            loading="lazy">
+          <div class="category-info">
+            <h3>Classic Design 03</h3>
+            <h3>RM 49.99</h3>
+            <p>Elegant styles for special celebrations.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Products -->
+    <section id="designs">
+      <h2>Featured Designs</h2>
+      <p class="section-sub">Browse by collection.</p>
+
+      <div class="filters" role="group" aria-label="Filter designs">
+        <button type="button" class="active" data-filter="all">Page o1</button>
+        <button type="button" data-filter="Classic">Page 02</button>
+        <button type="button" data-filter="Premium">Page 03</button>
+        <button type="button" data-filter="Wedding">Page 04</button>
+      </div>
+
+      <div class="products" id="products" aria-live="polite"></div>
+
+      <nav class="pagination" id="pagination" aria-label="Pagination"></nav>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+      <h2>Our Craft</h2>
+      <p>Each sampin is woven by hand using traditional techniques passed down through generations. Every piece takes
+        time, patience and skill – which is why no two are exactly alike.</p>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+      <h2>Contact &amp; Orders</h2>
+      <p>Interested in a design? Message us to confirm availability, colours and delivery.</p>
+      <!-- Replace 60123456789 with your WhatsApp number (country code, no + or spaces) -->
+      <a class="btn outline" href="https://wa.me/60123456789" target="_blank" rel="noopener">WhatsApp Us</a>
+    </section>
+
+  </main>
+
+  <footer>&copy; <span id="year"></span> Malaya Collection 18. All rights reserved.</footer>
+
+  <script>
+    /* ---- Edit your products here. Add as many as you like; pagination updates automatically. ---- */
+    const WHATSAPP = "60123456789"; // replace with your number
+    const PER_PAGE = 10;
+    const IMG = "../assets/classicsampin/";
+
+    const PRODUCTS = [
+      { name: "Classic Design 01", cat: "Classic", price: "RM 499", img: "IMG-20261014-WA0148.jpg" },
+      { name: "Classic Design 02", cat: "Classic", price: "RM 499", img: "IMG-20261014-WA0154.jpg" },
+      { name: "Classic Design 03", cat: "Premium", price: "RM 499", img: "InShot_20261019_171004565.jpg" },
+      { name: "Classic Design 04", cat: "Premium", price: "RM 499", img: "IMG-20261014-WA0158.jpg" },
+      { name: "Classic Design 05", cat: "Wedding", price: "RM 499", img: "IMG-20261014-WA0168.jpg" },
+      { name: "Classic Design 06", cat: "Classic", price: "RM 499", img: "InShot_20261019_170053622.jpg" },
+      { name: "Classic Design 07", cat: "Premium", price: "RM 499", img: "InShot_20261019_170211617.jpg" },
+      { name: "Classic Design 08", cat: "Wedding", price: "RM 499", img: "InShot_20261019_170245523.jpg" },
+      { name: "Classic Design 09", cat: "Classic", price: "RM 499", img: "InShot_20261019_170323018.jpg" },
+      { name: "Classic Design 10", cat: "Premium", price: "RM 499", img: "InShot_20261019_170815989.jpg" },
+      { name: "Classic Design 01", cat: "Classic", price: "RM 499", img: "IMG-20261014-WA0148.jpg" },
+      { name: "Classic Design 02", cat: "Classic", price: "RM 499", img: "IMG-20261014-WA0154.jpg" },
+      { name: "Classic Design 03", cat: "Premium", price: "RM 499", img: "InShot_20261019_171004565.jpg" },
+      { name: "Classic Design 04", cat: "Premium", price: "RM 499", img: "IMG-20261014-WA0158.jpg" },
+      { name: "Classic Design 05", cat: "Wedding", price: "RM 499", img: "IMG-20261014-WA0168.jpg" },
+      { name: "Classic Design 06", cat: "Classic", price: "RM 499", img: "InShot_20261019_170053622.jpg" },
+      { name: "Classic Design 07", cat: "Premium", price: "RM 499", img: "InShot_20261019_170211617.jpg" },
+      { name: "Classic Design 08", cat: "Wedding", price: "RM 499", img: "InShot_20261019_170245523.jpg" },
+      { name: "Classic Design 09", cat: "Classic", price: "RM 499", img: "InShot_20261019_170323018.jpg" },
+      { name: "Classic Design 10", cat: "Premium", price: "RM 499", img: "InShot_20261019_170815989.jpg" },
+      { name: "Classic Design 01", cat: "Classic", price: "RM 499", img: "IMG-20261014-WA0148.jpg" },
+      { name: "Classic Design 02", cat: "Classic", price: "RM 499", img: "IMG-20261014-WA0154.jpg" },
+      { name: "Classic Design 03", cat: "Premium", price: "RM 499", img: "InShot_20261019_171004565.jpg" },
+      { name: "Classic Design 04", cat: "Premium", price: "RM 499", img: "IMG-20261014-WA0158.jpg" },
+      { name: "Classic Design 05", cat: "Wedding", price: "RM 499", img: "IMG-20261014-WA0168.jpg" },
+      { name: "Classic Design 06", cat: "Classic", price: "RM 499", img: "InShot_20261019_170053622.jpg" },
+      { name: "Classic Design 07", cat: "Premium", price: "RM 499", img: "InShot_20261019_170211617.jpg" },
+      { name: "Classic Design 08", cat: "Wedding", price: "RM 499", img: "InShot_20261019_170245523.jpg" },
+      { name: "Classic Design 09", cat: "Classic", price: "RM 499", img: "InShot_20261019_170323018.jpg" },
+      { name: "Classic Design 10", cat: "Premium", price: "RM 499", img: "InShot_20261019_170815989.jpg" },
+      { name: "Classic Design 01", cat: "Classic", price: "RM 499", img: "IMG-20261014-WA0148.jpg" },
+      { name: "Classic Design 02", cat: "Classic", price: "RM 499", img: "IMG-20261014-WA0154.jpg" },
+      { name: "Classic Design 03", cat: "Premium", price: "RM 499", img: "InShot_20261019_171004565.jpg" },
+      { name: "Classic Design 04", cat: "Premium", price: "RM 499", img: "IMG-20261014-WA0158.jpg" },
+      { name: "Classic Design 05", cat: "Wedding", price: "RM 499", img: "IMG-20261014-WA0168.jpg" },
+      { name: "Classic Design 06", cat: "Classic", price: "RM 499", img: "InShot_20261019_170053622.jpg" },
+      { name: "Classic Design 07", cat: "Premium", price: "RM 499", img: "InShot_20261019_170211617.jpg" },
+      { name: "Classic Design 08", cat: "Wedding", price: "RM 499", img: "InShot_20261019_170245523.jpg" },
+      { name: "Classic Design 09", cat: "Classic", price: "RM 499", img: "InShot_20261019_170323018.jpg" },
+      { name: "Classic Design 10", cat: "Premium", price: "RM 499", img: "InShot_20261019_170815989.jpg" },
+    ];
+
+
+
+
+    const grid = document.getElementById("products");
+    const pager = document.getElementById("pagination");
+    const filterBtns = document.querySelectorAll(".filters button");
+    let filter = "all";
+    let page = 1;
+
+    const esc = s => s.replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+    function render() {
+      const list = PRODUCTS.filter(p => filter === "all" || p.cat === filter);
+      const pages = Math.max(1, Math.ceil(list.length / PER_PAGE));
+      page = Math.min(page, pages);
+      const items = list.slice((page - 1) * PER_PAGE, page * PER_PAGE);
+
+      grid.innerHTML = items.length ? items.map(p => {
+        const msg = encodeURIComponent(`Hi, I'm interested in ${p.name} ${p.price}`);
+        return `
+      <article class="product-card">
+        <img src="${IMG + p.img}" alt="${esc(p.name)}" loading="lazy">
+        <div class="product-info">
+          <h3>${esc(p.name)}</h3>
+           <h3>${esc(p.price)}</h3>
+         
+          <a class="btn outline" href="https://wa.me/${WHATSAPP}?text=${msg}" target="_blank" rel="noopener">Enquire</a>
+        </div>
+      </article>`;
+      }).join("") : '<p class="empty">No designs in this collection yet.</p>';
+
+      renderPager(pages);
+    }
+
+    function renderPager(pages) {
+      if (pages <= 1) { pager.innerHTML = ""; return; }
+
+      let html = `<button type="button" data-page="${page - 1}" ${page === 1 ? "disabled" : ""}>Previous</button>`;
+      for (let i = 1; i <= pages; i++) {
+        html += `<button type="button" data-page="${i}" class="${i === page ? "active" : ""}" ${i === page ? 'aria-current="page"' : ""}>${i}</button>`;
+      }
+      html += `<button type="button" data-page="${page + 1}" ${page === pages ? "disabled" : ""}>Next</button>`;
+      pager.innerHTML = html;
+    }
+
+    pager.addEventListener("click", e => {
+      const b = e.target.closest("button[data-page]");
+      if (!b || b.disabled) return;
+      page = Number(b.dataset.page);
+      render();
+      document.getElementById("designs").scrollIntoView({ behavior: "smooth" });
+    });
+
+    filterBtns.forEach(btn => btn.addEventListener("click", () => {
+      filterBtns.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      filter = btn.dataset.filter;
+      page = 1;
+      render();
+    }));
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+    render();
+  </script>
+
+</body>
+
+</html>
