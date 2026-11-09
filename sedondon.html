@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Malaya Collection 18 – handwoven sampin tenun manual. Classic, premium and wedding designs.">
+  <title>Sampin Tenun Manual | Malaya Collection 18</title>
+
+  <style>
+    :root {
+      --bg: #090909;
+      --card: #161616;
+      --gold: #d4af37;
+      --gold-dark: #493b19;
+      --text: #fff;
+      --muted: #bbb;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Segoe UI", Arial, sans-serif;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+    }
+
+    /* ---------- Header ---------- */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding: 14px 6%;
+      background: rgba(9, 9, 9, .95);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--gold-dark);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--gold);
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .logo img {
+      width: 35px;
+      height: 40px;
+      object-fit: contain;
+    }
+
+    .navbar nav {
+      display: flex;
+      gap: 22px;
+    }
+
+    .navbar nav a {
+      color: var(--muted);
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+      transition: color .2s, border-color .2s;
+    }
+
+    .navbar nav a:hover {
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+
+    /* ---------- Layout ---------- */
+    section {
+      padding: 50px 6%;
+    }
+
+    h2 {
+      text-align: center;
+      color: var(--gold);
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      text-align: center;
+      padding: 70px 6% 40px;
+    }
+
+    .hero h1 {
+      color: var(--gold);
+      font-size: clamp(28px, 5vw, 48px);
+      letter-spacing: 3px;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto 24px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 11px 26px;
+      border: 1px solid var(--gold);
+      border-radius: 4px;
+      background: var(--gold);
+      color: #111;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background .2s, color .2s;
+    }
+
+    .btn:hover {
+      background: transparent;
+      color: var(--gold);
+    }
+
+    .btn.outline {
+      background: transparent;
+      color: var(--gold);
+    }
+
+    .btn.outline:hover {
+      background: var(--gold);
+      color: #111;
+    }
+
+    /* ---------- Categories ---------- */
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .category-card {
+      background: var(--card);
+      border: 1px solid var(--gold-dark);
+      border-radius: 6px;
+      overflow: hidden;
+      transition: transform .25s, border-color .25s;
+    }
+
+    .category-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold);
+    }
+
+    .category-card img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+    }
+
+    .category-info {
+      padding: 20px;
+    }
+
+    .category-info h3 {
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .category-info p,
+    .product-info p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ---------- Filters ---------- */
+    .filters {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .filters button,
+    .pagination button {
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--gold-dark);
+      border-radius: 4px;
+      padding: 8px 16px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background .2s, color .2s, border-color .2s;
+    }
+
+    .filters button:hover,
+    .pagination button:hover:not(:disabled) {
+      border-color: var(--gold);
+    }
+
+    .filters button.active,
+    .pagination button.active {
+      background: var(--gold);
+      color: #111;
+      border-color: var(--gold);
+      font-weight: bold;
+    }
+
+    /* ---------- Products ---------- */
+    .products {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .product-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--card);
+      border: 1px solid #40351d;
+      border-radius: 5px;
+      overflow: hidden;
+      transition: transform .25s, border-color .25s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      background: #222;
+    }
+
+    .product-info {
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .product-info h3 {
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+
+    .price {
+      color: var(--gold);
+      font-weight: bold;
+      margin: 10px 0 12px;
+    }
+
+    .product-info .btn {
+      margin-top: auto;
+      text-align: center;
+      padding: 8px;
+      font-size: 13px;
+    }
+
+    .empty {
+      text-align: center;
+      color: var(--muted);
+      grid-column: 1 / -1;
+      padding: 30px 0;
+    }
+
+    /* ---------- Pagination ---------- */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 36px;
+    }
+
+    .pagination button:disabled {
+      opacity: .4;
+      cursor: not-allowed;
+    }
+
+    /* ---------- About / Contact ---------- */
+    .about p,
+    .contact p {
+      max-width: 640px;
+      margin: 0 auto 20px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px 6%;
+      border-top: 1px solid var(--gold-dark);
+      color: #777;
+      font-size: 13px;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 1100px) {
+      .products {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 900px) {
+      .products {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .category-card img {
+        height: 250px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .navbar {
+        justify-content: center;
+      }
+
+      .logo {
+        font-size: 16px;
+      }
+
+      .navbar nav {
+        gap: 14px;
+      }
+
+      .categories {
+        grid-template-columns: 1fr;
+      }
+
+      .products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      section {
+        padding: 34px 4%;
+      }
+
+      .category-card img {
+        height: 300px;
+      }
+
+      .product-card img {
+        height: 190px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+
+
+
+
+
+
+    .product-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 14px;
+}
+
+.product-actions .btn {
+  width: 100%;
+  text-align: center;
+  padding: 9px 6px;
+  font-size: 13px;
+}
+
+.add-cart {
+  background: transparent;
+  color: var(--gold);
+}
+
+.add-cart:hover {
+  background: var(--gold);
+  color: #111;
+}
+
+.buy-now {
+  background: var(--gold);
+  color: #111;
+}
+
+
+
+
+
+
+/* SHOPPING CART */
+.cart-section {
+  background: #090909;
+  color: #f8f5ee;
+  padding: 50px 6%;
+  margin-top: 40px;
+  border-top: 1px solid #d4af37;
+}
+
+.cart-section h2 {
+  color: #d4af37;
+  text-align: center;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+}
+
+#cart-empty {
+  text-align: center;
+  color: #aaa;
+  padding: 20px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 0;
+  border-bottom: 1px solid #333;
+}
+
+.cart-item img {
+  width: 85px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.cart-item-info {
+  flex: 1;
+}
+
+.cart-item-info h4 {
+  margin: 0 0 8px;
+  color: #d4af37;
+}
+
+.cart-item-info p {
+  margin: 5px 0;
+}
+
+.cart-item button,
+.cart-summary button {
+  background: #d4af37;
+  color: #090909;
+  border: none;
+  padding: 10px 14px;
+  margin: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.cart-item .remove-item {
+  background: #333;
+  color: white;
+}
+
+.cart-summary {
+  text-align: right;
+  margin-top: 25px;
+}
+
+.cart-summary h3 {
+  color: #d4af37;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+  .cart-item {
+    flex-wrap: wrap;
+  }
+
+  .cart-item img {
+    width: 70px;
+    height: 85px;
+  }
+
+  .cart-summary {
+    text-align: center;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =====================================
+   LUXURY GOLDEN GLOW ANIMATION
+   MALAYA COLLECTION 18
+===================================== */
+
+:root {
+    --gold: #d4af37;
+    --gold-light: #fff1a8;
+    --gold-dark: #8a6d22;
+}
+
+/* GOLDEN GLOW ANIMATION */
+
+@keyframes goldenGlow {
+    0%, 100% {
+        box-shadow:
+            0 0 5px rgba(212, 175, 55, 0.15),
+            0 0 12px rgba(212, 175, 55, 0.10);
+    }
+
+    50% {
+        box-shadow:
+            0 0 12px rgba(212, 175, 55, 0.45),
+            0 0 25px rgba(212, 175, 55, 0.30),
+            0 0 45px rgba(212, 175, 55, 0.15);
+    }
+}
+
+/* GOLD TEXT SHINE */
+
+@keyframes goldTextShine {
+    0%, 100% {
+        text-shadow:
+            0 0 5px rgba(212, 175, 55, 0.3);
+    }
+
+    50% {
+        text-shadow:
+            0 0 10px rgba(212, 175, 55, 0.8),
+            0 0 25px rgba(212, 175, 55, 0.5),
+            0 0 40px rgba(212, 175, 55, 0.25);
+    }
+}
+
+/* GOLD BORDER SHINE */
+
+@keyframes borderShine {
+    0%, 100% {
+        border-color: #493b19;
+    }
+
+    50% {
+        border-color: #d4af37;
+    }
+}
+
+/* NAVBAR */
+
+.navbar {
+    animation: goldenGlow 4s ease-in-out infinite;
+}
+
+/* LOGO */
+
+.logo {
+    animation: goldTextShine 3s ease-in-out infinite;
+}
+
+/* HERO HEADING */
+
+.hero h1 {
+    animation: goldTextShine 3s ease-in-out infinite;
+}
+
+/* SECTION HEADINGS */
+
+h2 {
+    animation: goldTextShine 4s ease-in-out infinite;
+}
+
+/* CATEGORY CARDS */
+
+.category-card {
+    animation: borderShine 4s ease-in-out infinite;
+}
+
+.category-card:hover {
+    box-shadow:
+        0 0 15px rgba(212, 175, 55, 0.5),
+        0 0 35px rgba(212, 175, 55, 0.25);
+    transform: translateY(-6px);
+}
+
+/* PRODUCT CARDS */
+
+.product-card {
+    animation: goldenGlow 5s ease-in-out infinite;
+}
+
+.product-card:hover {
+    border-color: var(--gold);
+    box-shadow:
+        0 0 12px rgba(212, 175, 55, 0.6),
+        0 0 28px rgba(212, 175, 55, 0.3);
+    transform: translateY(-5px);
+}
+
+/* PRODUCT PRICE */
+
+.price {
+    animation: goldTextShine 3s ease-in-out infinite;
+}
+
+/* BUTTON GOLDEN GLOW */
+
+.btn {
+    box-shadow:
+        0 0 8px rgba(212, 175, 55, 0.2);
+    transition: all 0.35s ease;
+}
+
+.btn:hover {
+    box-shadow:
+        0 0 12px rgba(212, 175, 55, 0.8),
+        0 0 25px rgba(212, 175, 55, 0.45);
+}
+
+/* CART SECTION */
+
+.cart-section {
+    animation: borderShine 4s ease-in-out infinite;
+}
+
+/* REDUCE ANIMATION FOR ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+    .navbar,
+    .logo,
+    .hero h1,
+    h2,
+    .category-card,
+    .product-card,
+    .price,
+    .cart-section {
+        animation: none !important;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   MALAYA COLLECTION 18
+   GOLDEN PARTICLE WAVE SHIMMER
+========================================= */
+
+body {
+    position: relative;
+    isolation: isolate;
+}
+
+/* Golden particle layer */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(circle, rgba(255,230,150,.95) 1px, transparent 2px),
+        radial-gradient(circle, rgba(212,175,55,.85) 2px, transparent 4px),
+        radial-gradient(circle, rgba(255,245,200,.8) 1px, transparent 3px),
+        radial-gradient(circle, rgba(212,175,55,.65) 2px, transparent 5px);
+
+    background-size:
+        110px 130px,
+        190px 180px,
+        150px 170px,
+        240px 220px;
+
+    background-position:
+        0 0,
+        40px 70px,
+        80px 20px,
+        120px 100px;
+
+    opacity: .65;
+    animation: goldenParticles 18s linear infinite;
+}
+
+/* Flowing golden wave light */
+body::after {
+    content: "";
+    position: fixed;
+    inset: -20%;
+    z-index: 0;
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 50%,
+            rgba(212,175,55,.12),
+            transparent 55%
+        ),
+        radial-gradient(
+            ellipse at 20% 45%,
+            transparent 35%,
+            rgba(255,215,100,.18) 36%,
+            rgba(255,235,170,.55) 37%,
+            rgba(212,175,55,.16) 38%,
+            transparent 41%
+        ),
+        radial-gradient(
+            ellipse at 75% 60%,
+            transparent 40%,
+            rgba(212,175,55,.18) 41%,
+            rgba(255,230,150,.55) 42%,
+            rgba(212,175,55,.15) 43%,
+            transparent 46%
+        );
+
+    filter: blur(9px);
+    opacity: .8;
+    animation: goldenWaves 12s ease-in-out infinite alternate;
+}
+
+/* Moving particles */
+@keyframes goldenParticles {
+    0% {
+        background-position:
+            0 0,
+            40px 70px,
+            80px 20px,
+            120px 100px;
+    }
+
+    100% {
+        background-position:
+            0 -500px,
+            200px -350px,
+            -100px -450px,
+            350px -550px;
+    }
+}
+
+/* Moving waves */
+@keyframes goldenWaves {
+    0% {
+        transform: translate(-4%, -2%) scale(1);
+        opacity: .45;
+    }
+
+    50% {
+        transform: translate(3%, 2%) scale(1.08);
+        opacity: .9;
+    }
+
+    100% {
+        transform: translate(-2%, 4%) scale(1.02);
+        opacity: .65;
+    }
+}
+
+/* Keep website content above the effect */
+body > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Mobile performance */
+@media (max-width: 768px) {
+    body::before {
+        opacity: .35;
+    }
+
+    body::after {
+        filter: blur(12px);
+        opacity: .5;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    body::before,
+    body::after {
+        animation: none !important;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </style>
+</head>
+
+<body>
+
+  <header class="navbar">
+    <a href="#home" class="logo">
+      <img src="assets/images/logo.jpg" alt="Malaya Collection Logo" width="35" height="40">
+      <span>MALAYA COLLECTION 18</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="#collections">Collections</a>
+      <a href="#designs">Designs</a>
+      <a href="#about">Our Craft</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <h1>INSTANT SAMPIN SEDONDON</h1>
+      <p>Handwoven sampin crafted with care, blending heritage patterns with refined detail.</p>
+      <a href="#designs" class="btn">View Designs</a>
+    </section>
+
+    <!-- Main categories -->
+    <section id="collections">
+      <h2>Our Main Collections</h2>
+      <p class="section-sub">Three collections for every occasion.</p>
+
+      <div class="categories">
+        <article class="category-card">
+        <img src="assets/images/images sedondon/image020.jpg" alt="Instant Sampin Sedondon" loading="lazy" ;>
+          <div class="category-info">
+            <h3>Instant Sampin Sedondon Kanak2</h3>
+            <h3>RM 49.99</h3>
+
+          </div>
+        </article>
+
+        <article class="category-card">
+          <img src="assets/images/images sedondon/1793787853330.jpg" alt="Instant Sampin Sedondon" loading="lazy">
+          <div class="category-info">
+            <h3>Instant Sampin Sedondon Dewasa </h3>
+            <h3> RM 79.99</h3>
+          </div>
+        </article>
+
+        <article class="category-card">
+          <img src="assets/images/images sedondon/image010.jpg" alt="Instant Sampin Sedondon"
+            loading="lazy">
+          <div class="category-info">
+            <h3>Chart Size</h3>
+            <h3></h3>
+            
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Products -->
+    <section id="designs">
+      <h2>Featured Designs</h2>
+      <p class="section-sub">Browse by collection.</p>
+
+      <!-- <div class="filters" role="group" aria-label="Filter designs">
+        <button type="button" class="active" data-filter="all">Page 01</button>
+        <button type="button" data-filter="Classic">Page 02</button>
+        <button type="button" data-filter="Premium">Page 03</button>
+        <button type="button" data-filter="Wedding">Page 04</button>
+        
+      </div> -->
+
+      <div class="products" id="products" aria-live="polite"></div>
+
+      <nav class="pagination" id="pagination" aria-label="Pagination"></nav>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+      <h2>Our Craft</h2>
+      <p>Each sampin is woven by hand using traditional techniques passed down through generations. Every piece takes
+        time, patience and skill – which is why no two are exactly alike.</p>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+      <h2>Contact &amp; Orders</h2>
+      <p>Interested in a design? Message us to confirm availability, colours and delivery.</p>
+      <!-- Replace 60123456789 with your WhatsApp number (country code, no + or spaces) -->
+      <a class="btn outline" href="https://wa.me/60123456789" target="_blank" rel="noopener">WhatsApp Us</a>
+    </section>
+
+  </main>
+
+
+
+  <!-- CART SECTION -->
+<section class="cart-section" id="cart-section">
+  <h2>YOUR SHOPPING CART</h2>
+
+  <p id="cart-empty">Your cart is empty.</p>
+
+  <div id="cart-items"></div>
+
+  <div class="cart-summary">
+    <h3>Total: <span id="cart-total">RM 0.00</span></h3>
+
+    <button id="clear-cart" type="button">
+      Clear Cart
+    </button>
+
+    <button id="checkout-btn" type="button">
+      Checkout on WhatsApp
+    </button>
+  </div>
+</section>
+
+
+
+
+
+  <footer>&copy; <span id="year"></span> Malaya Collection 18. All rights reserved.</footer>
+
+  <script>
+    /* ---- Edit your products here. Add as many as you like; pagination updates automatically. ---- */
+
+/* ==========================================
+   SAMPIN TENUN MANUAL
+   PRODUCTS + FILTERS + PAGINATION + CART
+========================================== */
+
+
+/* ==========================================
+   SAMPIN TENUN MANUAL
+   PRODUCTS + FILTERS + PAGINATION + CART
+========================================== */
+
+// 1. SETTINGS
+const WHATSAPP = "60123456789"; // Apna WhatsApp number dalein
+const PER_PAGE = 10;
+const IMG = "assets/images/images sedondon/";
+
+// 2. PRODUCTS
+const PRODUCTS = [
+  { name: "Sedondon Design 01", cat: "Sedondon", price: "RM 49.99", img: "file_0000000053988211b9ef9feef4178aa9.png" },
+  { name: "Sedondon Design 02", cat: "Sedondon", price: "RM 79.99", img: "1793787957144.jpg" },
+  { name: "Sedondon Design 03", cat: "Sedondon", price: "RM 49.99", img: "file_000000008ac88211b5e9b24e62bc6021.png" },
+  { name: "Sedondon Design 04", cat: "Sedondon", price: "RM 79.99", img: "1793788084121.jpg" },
+  { name: "Sedondon Design 05", cat: "Sedondon", price: "RM 49.99", img: "file_000000001a988210a6106e1301c1455a.png" },
+  { name: "Sedondon Design 06", cat: "Sedondon", price: "RM 79.99", img: "1793788276177.jpg" },
+  { name: "Sedondon Design 07", cat: "Sedondon", price: "RM 49.99", img: "file_00000000da1082109c2b367f3fd19887.png" },
+  { name: "Sedondon Design 08", cat: "Sedondon", price: "RM 79.99", img: "1793788521846.jpg" },
+  { name: "Sedondon Design 09", cat: "Sedondon", price: "RM 49.99", img: "file_00000000fb808210b8453453e6a10201.png" },
+  { name: "Sedondon Design 10", cat: "Sedondon", price: "RM 79.99", img: "1793788643529.jpg" },
+  { name: "Sedondon Design 11", cat: "Sedondon", price: "RM 49.99", img: "file_00000000fbe88211a5a155eaa3147ec4.png" },
+  { name: "Sedondon Design 12", cat: "Sedondon", price: "RM 79.99", img: "1793787853330.jpg" },
+  { name: "Sedondon Design 13", cat: "Sedondon", price: "RM 49.99", img: "file_0000000064f88210a25c7e37aeb70616.png" },
+  { name: "Sedondon Design 14", cat: "Sedondon", price: "RM 79.99", img: "1793788761797.jpg" },
+  { name: "Sedondon Design 15", cat: "Sedondon", price: "RM 49.99", img: "file_00000000b4388210ba6b40b2da314b01.png" },
+  { name: "Sedondon Design 16", cat: "Sedondon", price: "RM 79.99", img: "1793788869572.jpg" },
+  { name: "Sedondon Design 17", cat: "Sedondon", price: "RM 49.99", img: "file_000000007bc481f496aee503fce29fe0.png" },
+  { name: "Sedondon Design 18", cat: "Sedondon", price: "RM 79.99", img: "1793788999473.jpg" },
+  { name: "Sedondon Design 19", cat: "Sedondon", price: "RM 49.99", img: "file_00000000a5bc81f4bd17ffad4b58438b.png" },
+  { name: "Sedondon Design 20", cat: "Sedondon", price: "RM 79.99", img: "1793789118017.jpg" },
+  { name: "Sedondon Design 21", cat: "Sedondon", price: "RM 49.99", img: "file_00000000465881f485d81bb6d7e3572a.png" },
+  { name: "Sedondon Design 22", cat: "Sedondon", price: "RM 79.99", img: "1793789216371.jpg" },
+  { name: "Sedondon Design 23", cat: "Sedondon", price: "RM 49.99", img: "file_000000007fa88210be50ba69957e506b.png" },
+  { name: "Sedondon Design 24", cat: "Sedondon", price: "RM 79.99", img: "1793789334756.jpg" },
+  { name: "Sedondon Design 25", cat: "Sedondon", price: "RM 49.99", img: "file_000000001db081f499ec19d78f6f2e7b.png" },
+  { name: "Sedondon Design 26", cat: "Sedondon", price: "RM 79.99", img: "1793789669734.jpg" },
+  { name: "Sedondon Design 27", cat: "Sedondon", price: "RM 49.99", img: "file_00000000de0081f491db1e42b5cff106.png" },
+  { name: "Sedondon Design 28", cat: "Sedondon", price: "RM 79.99", img: "1793789774361.jpg" },
+  { name: "Sedondon Design 29", cat: "Sedondon", price: "RM 49.99", img: "file_00000000133481f496fe3bb625d9f8c9.png" },
+  { name: "Sedondon Design 30", cat: "Sedondon", price: "RM 79.99", img: "1793789889398.jpg" },
+  { name: "Sedondon Design 31", cat: "Sedondon", price: "RM 49.99", img: "file_00000000d8808211bde95286d34a4448.png" },
+  { name: "Sedondon Design 32", cat: "Sedondon", price: "RM 79.99", img: "1793789992870.jpg" },
+  { name: "Sedondon Design 33", cat: "Sedondon", price: "RM 49.99", img: "file_000000005d8082078a3c5beed4b6940f.png" },
+  { name: "Sedondon Design 34", cat: "Sedondon", price: "RM 79.99", img: "1793790101076.jpg" },
+  { name: "Sedondon Design 35", cat: "Sedondon", price: "RM 49.99", img: "file_000000000890821189e5fd024e0c9e13.png" },
+  { name: "Sedondon Design 36", cat: "Sedondon", price: "RM 79.99", img: "1793790280150.jpg" },
+  { name: "Sedondon Design 37", cat: "Sedondon", price: "RM 49.99", img: "file_00000000228482088e3496fb668d62c0.png" },
+  { name: "Sedondon Design 38", cat: "Sedondon", price: "RM 79.99", img: "1793791086663.jpg" },
+  { name: "Sedondon Design 39", cat: "Sedondon", price: "RM 49.99", img: "file_000000008fac8208b84bd68713e8b9c1.png" },
+  { name: "Sedondon Design 40", cat: "Sedondon", price: "RM 79.99", img: "1793791842441.jpg" },
+  { name: "Sedondon Design 41", cat: "Sedondon", price: "RM 49.99", img: "image020.jpg" },
+  { name: "Sedondon Design 42", cat: "Sedondon", price: "RM 79.99", img: "1793787853330.jpg" },
+  { name: "Sedondon Design 43", cat: "Sedondon", price: "RM 49.99", img: "file_0000000071048208b7b5707ffa4d1789.png" },
+  { name: "Sedondon Design 44", cat: "Sedondon", price: "RM 79.99", img: "1793791982607.jpg" },
+  
+  
+];
+
+// 3. CART
+let cart = [];
+let currentPage = 1;
+let currentFilter = "all";
+
+// 4. HTML ELEMENTS
+const grid = document.getElementById("products");
+const pager = document.getElementById("pagination");
+const filterButtons = document.querySelectorAll(".filters button");
+const cartItems = document.getElementById("cart-items");
+const cartEmpty = document.getElementById("cart-empty");
+const cartTotal = document.getElementById("cart-total");
+
+// 5. HELPERS
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, char => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[char]);
+}
+
+function getPrice(product) {
+  return Number(String(product.price).replace(/[^\d.]/g, "")) || 0;
+}
+
+function getFilteredProducts() {
+  return currentFilter === "all"
+    ? PRODUCTS
+    : PRODUCTS.filter(product => product.cat === currentFilter);
+}
+
+function getVisibleProducts() {
+  const products = getFilteredProducts();
+  const start = (currentPage - 1) * PER_PAGE;
+  return products.slice(start, start + PER_PAGE);
+}
+
+// 6. RENDER PRODUCT GRID
+function renderProducts() {
+  if (!grid || !pager) return;
+
+  const products = getFilteredProducts();
+  const totalPages = Math.max(1, Math.ceil(products.length / PER_PAGE));
+
+  currentPage = Math.min(Math.max(currentPage, 1), totalPages);
+
+  const visible = getVisibleProducts();
+
+  if (visible.length === 0) {
+    grid.innerHTML = '<p class="empty">No designs found.</p>';
+  } else {
+    grid.innerHTML = visible.map((product, index) => `
+      <article class="product-card">
+        <img
+          src="${escapeHTML(IMG + product.img)}"
+          alt="${escapeHTML(product.name)}"
+          loading="lazy"
+        >
+
+        <div class="product-info">
+          <h3>${escapeHTML(product.name)}</h3>
+          <p>${escapeHTML(product.cat)}</p>
+          <p class="price">${escapeHTML(product.price)}</p>
+
+          <div class="product-actions">
+            <button type="button" class="btn buy-now"
+              data-action="buy" data-index="${index}">
+              Buy Now
+            </button>
+
+            <button type="button" class="btn add-cart"
+              data-action="cart" data-index="${index}">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </article>
+    `).join("");
+  }
+
+  renderPagination(totalPages);
+}
+
+// 7. RENDER PAGINATION
+function renderPagination(totalPages) {
+  let html = `
+    <button type="button" data-page="${currentPage - 1}"
+      ${currentPage === 1 ? "disabled" : ""}>Previous</button>
+  `;
+
+  for (let page = 1; page <= totalPages; page++) {
+    html += `
+      <button type="button" data-page="${page}"
+        class="${page === currentPage ? "active" : ""}"
+        ${page === currentPage ? 'aria-current="page"' : ""}>
+        ${page}
+      </button>
+    `;
+  }
+
+  html += `
+    <button type="button" data-page="${currentPage + 1}"
+      ${currentPage === totalPages ? "disabled" : ""}>Next</button>
+  `;
+
+  pager.innerHTML = html;
+}
+
+// 8. ADD TO CART
+// Product image uses IMG + product.img.
+// Product name uses product.name.
+// Product identity uses product.name because no id exists in PRODUCTS.
+function addToCart(product) {
+  const existing = cart.find(item => item.name === product.name);
+
+  if (existing) {
+    existing.quantity++;
+  } else {
+    cart.push({
+      ...product,
+      quantity: 1
+    });
+  }
+
+  renderCart();
+
+  document.getElementById("cart-section")?.scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+}
+
+// 9. DISPLAY CART WITH SELECTED PRODUCT IMAGE
+function renderCart() {
+  if (!cartItems || !cartEmpty || !cartTotal) return;
+
+  cartItems.innerHTML = "";
+  cartEmpty.style.display = cart.length ? "none" : "block";
+
+  let total = 0;
+
+  cart.forEach(item => {
+    const price = getPrice(item);
+    total += price * item.quantity;
+
+    const row = document.createElement("article");
+    row.className = "cart-item";
+
+    row.innerHTML = `
+      <img
+        src="${escapeHTML(IMG + item.img)}"
+        alt="${escapeHTML(item.name)}"
+        loading="lazy"
+      >
+
+      <div class="cart-item-info">
+        <h4>${escapeHTML(item.name)}</h4>
+        <p>${escapeHTML(item.price)}</p>
+
+        <button type="button"
+          data-cart-action="minus"
+          data-name="${escapeHTML(item.name)}">−</button>
+
+        <span aria-label="Quantity">${item.quantity}</span>
+
+        <button type="button"
+          data-cart-action="plus"
+          data-name="${escapeHTML(item.name)}">+</button>
+
+        <button type="button" class="remove-item"
+          data-cart-action="remove"
+          data-name="${escapeHTML(item.name)}">
+          Remove
+        </button>
+      </div>
+    `;
+
+    cartItems.appendChild(row);
+  });
+
+  cartTotal.textContent = `RM ${total.toFixed(2)}`;
+}
+
+// 10. CART BUTTONS: PLUS, MINUS, REMOVE
+if (cartItems) {
+  cartItems.addEventListener("click", function(event) {
+    const button = event.target.closest("[data-cart-action]");
+    if (!button) return;
+
+    const name = button.dataset.name;
+    const item = cart.find(product => product.name === name);
+
+    if (!item) return;
+
+    switch (button.dataset.cartAction) {
+      case "plus":
+        item.quantity++;
+        break;
+
+      case "minus":
+        item.quantity--;
+
+        if (item.quantity <= 0) {
+          cart = cart.filter(product => product.name !== name);
+        }
+        break;
+
+      case "remove":
+        cart = cart.filter(product => product.name !== name);
+        break;
+    }
+
+    renderCart();
+  });
+}
+
+// 11. CLEAR CART
+const clearCartButton = document.getElementById("clear-cart");
+
+if (clearCartButton) {
+  clearCartButton.addEventListener("click", function() {
+    cart = [];
+    renderCart();
+  });
+}
+
+// 12. WHATSAPP CHECKOUT
+const checkoutButton = document.getElementById("checkout-btn");
+
+if (checkoutButton) {
+  checkoutButton.addEventListener("click", function() {
+    if (cart.length === 0) {
+      alert("Your cart is empty!");
+      return;
+    }
+
+    const lines = cart.map(item => {
+      const subtotal = getPrice(item) * item.quantity;
+
+      return `${item.name}\n` +
+        `Quantity: ${item.quantity}\n` +
+        `Price each: ${item.price}\n` +
+        `Subtotal: RM ${subtotal.toFixed(2)}`;
+    });
+
+    const total = cart.reduce(
+      (sum, item) => sum + getPrice(item) * item.quantity,
+      0
+    );
+
+    const message =
+      "Hello! I want to order from SAMPIN TENUN MANUAL.\n\n" +
+      lines.join("\n\n") +
+      `\n\nTotal: RM ${total.toFixed(2)}`;
+
+    const url =
+      `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`;
+
+    window.open(url, "_blank");
+  });
+}
+
+// 13. BUY NOW
+function buyNow(product) {
+  const message =
+    "Hello! I want to order from SAMPIN TENUN MANUAL.\n\n" +
+    `Product: ${product.name}\n` +
+    `Price: ${product.price}\n` +
+    "Please confirm availability.";
+
+  window.open(
+    `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`,
+    "_blank"
+  );
+}
+
+// 14. PRODUCT GRID BUTTON EVENTS
+if (grid) {
+  grid.addEventListener("click", function(event) {
+    const button = event.target.closest("[data-action]");
+    if (!button) return;
+
+    const index = Number(button.dataset.index);
+    const product = getVisibleProducts()[index];
+
+    if (!product) return;
+
+    if (button.dataset.action === "cart") {
+      addToCart(product);
+    } else if (button.dataset.action === "buy") {
+      buyNow(product);
+    }
+  });
+}
+
+// 15. FILTER EVENTS
+filterButtons.forEach(button => {
+  button.addEventListener("click", function() {
+    currentFilter = this.dataset.filter;
+    currentPage = 1;
+
+    filterButtons.forEach(filter => {
+      filter.classList.toggle("active", filter === this);
+    });
+
+    renderProducts();
+  });
+});
+
+// 16. PAGINATION EVENTS
+if (pager) {
+  pager.addEventListener("click", function(event) {
+    const button = event.target.closest("[data-page]");
+    if (!button || button.disabled) return;
+
+    currentPage = Number(button.dataset.page);
+    renderProducts();
+
+    document.getElementById("designs")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  });
+}
+
+// 17. FOOTER YEAR
+const yearElement = document.getElementById("year");
+
+if (yearElement) {
+  yearElement.textContent = new Date().getFullYear();
+}
+
+// 18. INITIAL DISPLAY
+renderProducts();
+renderCart();
+
+
+
+
+   
+  </script>
+
+</body>
+
+</html>
