@@ -1,11 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="Malaya Collection 18 – handwoven sampin tenun manual. Classic, premium and wedding designs.">
+  <meta name="description" content="Malaya Collection 18 – handwoven sampin tenun manual. Classic, premium and wedding designs.">
   <title>Sampin Tenun Manual | Malaya Collection 18</title>
 
   <style>
@@ -13,6 +13,7 @@
       --bg: #090909;
       --card: #161616;
       --gold: #d4af37;
+      --gold-light: #fff1a8;
       --gold-dark: #493b19;
       --text: #fff;
       --muted: #bbb;
@@ -51,7 +52,8 @@
       outline-offset: 3px;
     }
 
-    /* ---------- Header ---------- */
+    /* HEADER */
+
     .navbar {
       position: sticky;
       top: 0;
@@ -65,6 +67,7 @@
       background: rgba(9, 9, 9, .95);
       backdrop-filter: blur(6px);
       border-bottom: 1px solid var(--gold-dark);
+      animation: goldenGlow 4s ease-in-out infinite;
     }
 
     .logo {
@@ -75,6 +78,7 @@
       font-size: 20px;
       font-weight: bold;
       letter-spacing: 2px;
+      animation: goldTextShine 3s ease-in-out infinite;
     }
 
     .logo img {
@@ -103,7 +107,8 @@
       border-color: var(--gold);
     }
 
-    /* ---------- Layout ---------- */
+    /* GENERAL LAYOUT */
+
     section {
       padding: 50px 6%;
     }
@@ -113,6 +118,7 @@
       color: var(--gold);
       margin-bottom: 8px;
       letter-spacing: 1px;
+      animation: goldTextShine 4s ease-in-out infinite;
     }
 
     .section-sub {
@@ -122,7 +128,8 @@
       margin-bottom: 30px;
     }
 
-    /* ---------- Hero ---------- */
+    /* HERO */
+
     .hero {
       text-align: center;
       padding: 70px 6% 40px;
@@ -133,6 +140,7 @@
       font-size: clamp(28px, 5vw, 48px);
       letter-spacing: 3px;
       margin-bottom: 12px;
+      animation: goldTextShine 3s ease-in-out infinite;
     }
 
     .hero p {
@@ -140,6 +148,8 @@
       max-width: 560px;
       margin: 0 auto 24px;
     }
+
+    /* BUTTONS */
 
     .btn {
       display: inline-block;
@@ -151,12 +161,16 @@
       font-weight: bold;
       font-size: 14px;
       cursor: pointer;
-      transition: background .2s, color .2s;
+      transition: all .35s ease;
+      box-shadow: 0 0 8px rgba(212, 175, 55, .2);
     }
 
     .btn:hover {
       background: transparent;
       color: var(--gold);
+      box-shadow:
+        0 0 12px rgba(212, 175, 55, .8),
+        0 0 25px rgba(212, 175, 55, .45);
     }
 
     .btn.outline {
@@ -169,7 +183,8 @@
       color: #111;
     }
 
-    /* ---------- Categories ---------- */
+    /* CATEGORIES */
+
     .categories {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -182,11 +197,15 @@
       border-radius: 6px;
       overflow: hidden;
       transition: transform .25s, border-color .25s;
+      animation: borderShine 4s ease-in-out infinite;
     }
 
     .category-card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-6px);
       border-color: var(--gold);
+      box-shadow:
+        0 0 15px rgba(212, 175, 55, .5),
+        0 0 35px rgba(212, 175, 55, .25);
     }
 
     .category-card img {
@@ -204,47 +223,8 @@
       margin-bottom: 8px;
     }
 
-    .category-info p,
-    .product-info p {
-      color: var(--muted);
-      font-size: 14px;
-    }
+    /* PRODUCTS */
 
-    /* ---------- Filters ---------- */
-    .filters {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 28px;
-    }
-
-    .filters button,
-    .pagination button {
-      background: transparent;
-      color: var(--gold);
-      border: 1px solid var(--gold-dark);
-      border-radius: 4px;
-      padding: 8px 16px;
-      font-size: 14px;
-      cursor: pointer;
-      transition: background .2s, color .2s, border-color .2s;
-    }
-
-    .filters button:hover,
-    .pagination button:hover:not(:disabled) {
-      border-color: var(--gold);
-    }
-
-    .filters button.active,
-    .pagination button.active {
-      background: var(--gold);
-      color: #111;
-      border-color: var(--gold);
-      font-weight: bold;
-    }
-
-    /* ---------- Products ---------- */
     .products {
       display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -259,11 +239,15 @@
       border-radius: 5px;
       overflow: hidden;
       transition: transform .25s, border-color .25s;
+      animation: goldenGlow 5s ease-in-out infinite;
     }
 
     .product-card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-5px);
       border-color: var(--gold);
+      box-shadow:
+        0 0 12px rgba(212, 175, 55, .6),
+        0 0 28px rgba(212, 175, 55, .3);
     }
 
     .product-card img {
@@ -285,17 +269,79 @@
       margin-bottom: 6px;
     }
 
-    .price {
-      color: var(--gold);
-      font-weight: bold;
-      margin: 10px 0 12px;
+    .product-info p {
+      color: var(--muted);
+      font-size: 14px;
     }
 
-    .product-info .btn {
+    /* SALE PRICE */
+
+    .sale-badge {
+      display: inline-block;
+      width: fit-content;
+      padding: 4px 9px;
+      margin-top: 9px;
+      border: 1px solid var(--gold);
+      border-radius: 4px;
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .price {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin: 10px 0 12px;
+      animation: goldTextShine 3s ease-in-out infinite;
+    }
+
+    .old-price {
+      color: #999;
+      text-decoration: line-through;
+      font-size: 14px;
+      font-weight: normal;
+    }
+
+    .sale-price {
+      color: var(--gold);
+      font-size: 19px;
+      font-weight: 800;
+      text-shadow: 0 0 10px rgba(212, 175, 55, .5);
+    }
+
+    /* PRODUCT BUTTONS */
+
+    .product-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
       margin-top: auto;
+      padding-top: 14px;
+    }
+
+    .product-actions .btn {
+      width: 100%;
       text-align: center;
-      padding: 8px;
+      padding: 9px 6px;
       font-size: 13px;
+    }
+
+    .add-cart {
+      background: transparent;
+      color: var(--gold);
+    }
+
+    .add-cart:hover {
+      background: var(--gold);
+      color: #111;
+    }
+
+    .buy-now {
+      background: var(--gold);
+      color: #111;
     }
 
     .empty {
@@ -305,7 +351,8 @@
       padding: 30px 0;
     }
 
-    /* ---------- Pagination ---------- */
+    /* PAGINATION */
+
     .pagination {
       display: flex;
       justify-content: center;
@@ -314,12 +361,35 @@
       margin-top: 36px;
     }
 
+    .pagination button {
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--gold-dark);
+      border-radius: 4px;
+      padding: 8px 16px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background .2s, color .2s, border-color .2s;
+    }
+
+    .pagination button:hover:not(:disabled) {
+      border-color: var(--gold);
+    }
+
+    .pagination button.active {
+      background: var(--gold);
+      color: #111;
+      border-color: var(--gold);
+      font-weight: bold;
+    }
+
     .pagination button:disabled {
       opacity: .4;
       cursor: not-allowed;
     }
 
-    /* ---------- About / Contact ---------- */
+    /* ABOUT / CONTACT */
+
     .about p,
     .contact p {
       max-width: 640px;
@@ -332,6 +402,87 @@
       text-align: center;
     }
 
+    /* SHOPPING CART */
+
+    .cart-section {
+      background: #090909;
+      color: #f8f5ee;
+      padding: 50px 6%;
+      margin-top: 40px;
+      border-top: 1px solid var(--gold);
+      animation: borderShine 4s ease-in-out infinite;
+    }
+
+    .cart-section h2 {
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: 30px;
+      letter-spacing: 2px;
+    }
+
+    #cart-empty {
+      text-align: center;
+      color: #aaa;
+      padding: 20px;
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 18px 0;
+      border-bottom: 1px solid #333;
+    }
+
+    .cart-item img {
+      width: 85px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .cart-item-info {
+      flex: 1;
+    }
+
+    .cart-item-info h4 {
+      margin-bottom: 8px;
+      color: var(--gold);
+    }
+
+    .cart-item-info p {
+      margin: 5px 0;
+    }
+
+    .cart-item button,
+    .cart-summary button {
+      background: var(--gold);
+      color: #090909;
+      border: none;
+      padding: 10px 14px;
+      margin: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 3px;
+    }
+
+    .cart-item .remove-item {
+      background: #333;
+      color: white;
+    }
+
+    .cart-summary {
+      text-align: right;
+      margin-top: 25px;
+    }
+
+    .cart-summary h3 {
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    /* FOOTER */
+
     footer {
       text-align: center;
       padding: 24px 6%;
@@ -340,7 +491,61 @@
       font-size: 13px;
     }
 
-    /* ---------- Responsive ---------- */
+    /* GOLDEN GLOW ANIMATIONS */
+
+    @keyframes goldenGlow {
+      0%, 100% {
+        box-shadow:
+          0 0 5px rgba(212, 175, 55, .15),
+          0 0 12px rgba(212, 175, 55, .10);
+      }
+
+      50% {
+        box-shadow:
+          0 0 12px rgba(212, 175, 55, .45),
+          0 0 25px rgba(212, 175, 55, .30),
+          0 0 45px rgba(212, 175, 55, .15);
+      }
+    }
+
+    @keyframes goldTextShine {
+      0%, 100% {
+        text-shadow: 0 0 5px rgba(212, 175, 55, .3);
+      }
+
+      50% {
+        text-shadow:
+          0 0 10px rgba(212, 175, 55, .8),
+          0 0 25px rgba(212, 175, 55, .5),
+          0 0 40px rgba(212, 175, 55, .25);
+      }
+    }
+
+    @keyframes borderShine {
+      0%, 100% {
+        border-color: #493b19;
+      }
+
+      50% {
+        border-color: #d4af37;
+      }
+    }
+
+    /* GOLD PARTICLE CANVAS */
+
+    #gold-event-animation {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 5;
+      opacity: .82;
+      mix-blend-mode: screen;
+    }
+
+    /* RESPONSIVE */
+
     @media (max-width: 1100px) {
       .products {
         grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -368,6 +573,8 @@
 
       .navbar nav {
         gap: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
       }
 
       .categories {
@@ -390,362 +597,50 @@
       .product-card img {
         height: 190px;
       }
-    }
 
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        transition: none !important;
-        scroll-behavior: auto !important;
+      .cart-item {
+        flex-wrap: wrap;
+      }
+
+      .cart-item img {
+        width: 70px;
+        height: 85px;
+      }
+
+      .cart-summary {
+        text-align: center;
+      }
+
+      #gold-event-animation {
+        opacity: .7;
       }
     }
 
-
-
-
-
-
-    .product-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: auto;
-  padding-top: 14px;
-}
-
-.product-actions .btn {
-  width: 100%;
-  text-align: center;
-  padding: 9px 6px;
-  font-size: 13px;
-}
-
-.add-cart {
-  background: transparent;
-  color: var(--gold);
-}
-
-.add-cart:hover {
-  background: var(--gold);
-  color: #111;
-}
-
-.buy-now {
-  background: var(--gold);
-  color: #111;
-}
-
-
-
-
-
-
-/* SHOPPING CART */
-.cart-section {
-  background: #090909;
-  color: #f8f5ee;
-  padding: 50px 6%;
-  margin-top: 40px;
-  border-top: 1px solid #d4af37;
-}
-
-.cart-section h2 {
-  color: #d4af37;
-  text-align: center;
-  margin-bottom: 30px;
-  letter-spacing: 2px;
-}
-
-#cart-empty {
-  text-align: center;
-  color: #aaa;
-  padding: 20px;
-}
-
-.cart-item {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  padding: 18px 0;
-  border-bottom: 1px solid #333;
-}
-
-.cart-item img {
-  width: 85px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 5px;
-}
-
-.cart-item-info {
-  flex: 1;
-}
-
-.cart-item-info h4 {
-  margin: 0 0 8px;
-  color: #d4af37;
-}
-
-.cart-item-info p {
-  margin: 5px 0;
-}
-
-.cart-item button,
-.cart-summary button {
-  background: #d4af37;
-  color: #090909;
-  border: none;
-  padding: 10px 14px;
-  margin: 5px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.cart-item .remove-item {
-  background: #333;
-  color: white;
-}
-
-.cart-summary {
-  text-align: right;
-  margin-top: 25px;
-}
-
-.cart-summary h3 {
-  color: #d4af37;
-  margin-bottom: 20px;
-}
-
-@media (max-width: 600px) {
-  .cart-item {
-    flex-wrap: wrap;
-  }
-
-  .cart-item img {
-    width: 70px;
-    height: 85px;
-  }
-
-  .cart-summary {
-    text-align: center;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* =====================================
-   LUXURY GOLDEN GLOW ANIMATION
-   MALAYA COLLECTION 18
-===================================== */
-
-:root {
-    --gold: #d4af37;
-    --gold-light: #fff1a8;
-    --gold-dark: #8a6d22;
-}
-
-/* GOLDEN GLOW ANIMATION */
-
-@keyframes goldenGlow {
-    0%, 100% {
-        box-shadow:
-            0 0 5px rgba(212, 175, 55, 0.15),
-            0 0 12px rgba(212, 175, 55, 0.10);
-    }
-
-    50% {
-        box-shadow:
-            0 0 12px rgba(212, 175, 55, 0.45),
-            0 0 25px rgba(212, 175, 55, 0.30),
-            0 0 45px rgba(212, 175, 55, 0.15);
-    }
-}
-
-/* GOLD TEXT SHINE */
-
-@keyframes goldTextShine {
-    0%, 100% {
-        text-shadow:
-            0 0 5px rgba(212, 175, 55, 0.3);
-    }
-
-    50% {
-        text-shadow:
-            0 0 10px rgba(212, 175, 55, 0.8),
-            0 0 25px rgba(212, 175, 55, 0.5),
-            0 0 40px rgba(212, 175, 55, 0.25);
-    }
-}
-
-/* GOLD BORDER SHINE */
-
-@keyframes borderShine {
-    0%, 100% {
-        border-color: #493b19;
-    }
-
-    50% {
-        border-color: #d4af37;
-    }
-}
-
-/* NAVBAR */
-
-.navbar {
-    animation: goldenGlow 4s ease-in-out infinite;
-}
-
-/* LOGO */
-
-.logo {
-    animation: goldTextShine 3s ease-in-out infinite;
-}
-
-/* HERO HEADING */
-
-.hero h1 {
-    animation: goldTextShine 3s ease-in-out infinite;
-}
-
-/* SECTION HEADINGS */
-
-h2 {
-    animation: goldTextShine 4s ease-in-out infinite;
-}
-
-/* CATEGORY CARDS */
-
-.category-card {
-    animation: borderShine 4s ease-in-out infinite;
-}
-
-.category-card:hover {
-    box-shadow:
-        0 0 15px rgba(212, 175, 55, 0.5),
-        0 0 35px rgba(212, 175, 55, 0.25);
-    transform: translateY(-6px);
-}
-
-/* PRODUCT CARDS */
-
-.product-card {
-    animation: goldenGlow 5s ease-in-out infinite;
-}
-
-.product-card:hover {
-    border-color: var(--gold);
-    box-shadow:
-        0 0 12px rgba(212, 175, 55, 0.6),
-        0 0 28px rgba(212, 175, 55, 0.3);
-    transform: translateY(-5px);
-}
-
-/* PRODUCT PRICE */
-
-.price {
-    animation: goldTextShine 3s ease-in-out infinite;
-}
-
-/* BUTTON GOLDEN GLOW */
-
-.btn {
-    box-shadow:
-        0 0 8px rgba(212, 175, 55, 0.2);
-    transition: all 0.35s ease;
-}
-
-.btn:hover {
-    box-shadow:
-        0 0 12px rgba(212, 175, 55, 0.8),
-        0 0 25px rgba(212, 175, 55, 0.45);
-}
-
-/* CART SECTION */
-
-.cart-section {
-    animation: borderShine 4s ease-in-out infinite;
-}
-
-/* REDUCE ANIMATION FOR ACCESSIBILITY */
-
-@media (prefers-reduced-motion: reduce) {
-    .navbar,
-    .logo,
-    .hero h1,
-    h2,
-    .category-card,
-    .product-card,
-    .price,
-    .cart-section {
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      .navbar,
+      .logo,
+      .hero h1,
+      h2,
+      .category-card,
+      .product-card,
+      .price,
+      .cart-section {
         animation: none !important;
-    }
-}
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* SHINING GOLD EVENT BACKGROUND */
-
-#gold-event-animation {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 5;
-    opacity: 0.82;
-    mix-blend-mode: screen;
-}
-
-@media (max-width: 768px) {
-    #gold-event-animation {
-        opacity: 0.7;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    #gold-event-animation {
+      #gold-event-animation {
         display: none;
+      }
     }
-}
-
-
-
-
-
-
-
-
-
-
   </style>
 </head>
 
 <body>
+
+  <!-- HEADER -->
 
   <header class="navbar">
     <a href="#home" class="logo">
@@ -764,582 +659,673 @@ h2 {
 
   <main>
 
-    <!-- Hero -->
+    <!-- HERO -->
+
     <section class="hero" id="home">
       <h1>SONGKET TENUN ASLI</h1>
       <p>Handwoven sampin crafted with care, blending heritage patterns with refined detail.</p>
       <a href="#designs" class="btn">View Designs</a>
     </section>
 
-    <!-- Main categories -->
+    <!-- MAIN CATEGORIES -->
+
     <section id="collections">
       <h2>Our Main Collections</h2>
       <p class="section-sub">Three collections for every occasion.</p>
 
       <div class="categories">
-        <article class="category-card">
-        <img src="assets/images/images wedding/file_00000000c10482118d7d13a987124b30.png" alt="Classic Sampin" loading="lazy" ;>
-          <div class="category-info">
-            <h3>Songket Tenun Asli</h3>
-            <h3>RM 79.99</h3>
-
-          </div>
-        </article>
 
         <article class="category-card">
-          <img src="assets/images/images wedding/file_000000003c4081f4aa44dd7002aa07f1.png" alt="Premium Tenun" loading="lazy">
-          <div class="category-info">
-            <h3>Songket Tenun Asli </h3>
-            <h3>RM 79.99</h3>
-          </div>
-        </article>
-
-        <article class="category-card">
-          <img src="assets/images/images wedding/file_000000004e3c8211a2fe9c1f90387539.png" alt="Wedding and Occasion Collection"
+          <img
+            src="assets/images/images wedding/file_00000000c10482118d7d13a987124b30.png"
+            alt="Songket Tenun Asli Collection"
             loading="lazy">
           <div class="category-info">
             <h3>Songket Tenun Asli</h3>
-            <h3>RM 79.99</h3>
-            
+            <h3>RM 55.99</h3>
           </div>
         </article>
+
+        <article class="category-card">
+          <img
+            src="assets/images/images wedding/file_000000003c4081f4aa44dd7002aa07f1.png"
+            alt="Songket Tenun Asli Collection"
+            loading="lazy">
+          <div class="category-info">
+            <h3>Songket Tenun Asli</h3>
+            <h3>RM 55.99</h3>
+          </div>
+        </article>
+
+        <article class="category-card">
+          <img
+            src="assets/images/images wedding/file_000000004e3c8211a2fe9c1f90387539.png"
+            alt="Wedding and Occasion Collection"
+            loading="lazy">
+          <div class="category-info">
+            <h3>Songket Tenun Asli</h3>
+            <h3>RM 55.99</h3>
+          </div>
+        </article>
+
       </div>
     </section>
 
-    <!-- Products -->
+    <!-- PRODUCTS -->
+
     <section id="designs">
       <h2>Featured Designs</h2>
-      <p class="section-sub">Browse by collection.</p>
-
-      <!-- <div class="filters" role="group" aria-label="Filter designs">
-        <button type="button" class="active" data-filter="all">Page 01</button>
-        <button type="button" data-filter="Classic">Page 02</button>
-        <button type="button" data-filter="Premium">Page 03</button>
-        <button type="button" data-filter="Wedding">Page 04</button>
-      </div> -->
+      <p class="section-sub">Browse our Songket Tenun Asli designs.</p>
 
       <div class="products" id="products" aria-live="polite"></div>
 
       <nav class="pagination" id="pagination" aria-label="Pagination"></nav>
     </section>
 
-    <!-- About -->
+    <!-- ABOUT -->
+
     <section class="about" id="about">
       <h2>Our Craft</h2>
-      <p>Each Songket is woven by hand using traditional techniques passed down through generations. Every piece takes
-        time, patience and skill – which is why no two are exactly alike.</p>
+      <p>
+        Each Songket is woven by hand using traditional techniques passed down
+        through generations. Every piece takes time, patience and skill –
+        which is why no two are exactly alike.
+      </p>
     </section>
 
-    <!-- Contact -->
+    <!-- CONTACT -->
+
     <section class="contact" id="contact">
       <h2>Contact &amp; Orders</h2>
       <p>Interested in a design? Message us to confirm availability, colours and delivery.</p>
-      <!-- Replace 60123456789 with your WhatsApp number (country code, no + or spaces) -->
-      <a class="btn outline" href="https://wa.me/60123456789" target="_blank" rel="noopener">WhatsApp Us</a>
+      <a class="btn outline"
+        href="https://wa.me/60137358951"
+        target="_blank"
+        rel="noopener">
+        WhatsApp Us
+      </a>
     </section>
 
   </main>
 
+  <!-- SHOPPING CART -->
 
-  
-<!-- CART SECTION -->
-<section class="cart-section" id="cart-section">
-  <h2>YOUR SHOPPING CART</h2>
+  <section class="cart-section" id="cart-section">
+    <h2>YOUR SHOPPING CART</h2>
 
-  <p id="cart-empty">Your cart is empty.</p>
+    <p id="cart-empty">Your cart is empty.</p>
 
-  <div id="cart-items"></div>
+    <div id="cart-items"></div>
 
-  <div class="cart-summary">
-    <h3>Total: <span id="cart-total">RM 0.00</span></h3>
+    <div class="cart-summary">
+      <h3>Total: <span id="cart-total">RM 0.00</span></h3>
 
-    <button id="clear-cart" type="button">
-      Clear Cart
-    </button>
+      <button id="clear-cart" type="button">Clear Cart</button>
 
-    <button id="checkout-btn" type="button">
-      Checkout on WhatsApp
-    </button>
-  </div>
-</section>
-
-
-
-
-
-
-
-
-  <footer>&copy; <span id="year"></span> Malaya Collection 18. All rights reserved.</footer>
-
-
-<canvas id="gold-event-animation"></canvas>
-  
-
-
-
-  
-  <script>
-    /* ---- Edit your products here. Add as many as you like; pagination updates automatically. ---- */
-    
-/* ==========================================
-   SAMPIN TENUN MANUAL
-   PRODUCTS + FILTERS + PAGINATION + CART
-========================================== */
-
-// 1. SETTINGS
-const WHATSAPP = "60123456789"; // Apna WhatsApp number dalein
-const PER_PAGE = 10;
-const IMG = "assets/images/images wedding/";
-
-// 2. PRODUCTS
-const PRODUCTS = [
-  { name: "Songket Tenun Asli Design 01", cat: "Songet", price: "RM 79.99", img: "file_000000000c4082119fd33d55e7e3e2ad.png" },
-  { name: "Songket Tenun Asli Design 02", cat: "Songket", price: "RM 79.99", img: "file_000000000e848211acd6200f1139cdf9.png" },
-  { name: "Songket Tenun Asli Design 03", cat: "Songket", price: "RM 79.99", img: "file_00000000a4c0821185423000093e27ab.png" },
-  { name: "Songket Tenun Asli Design 04", cat: "Songket", price: "RM 79.99", img: "file_00000000a73c821187e939e264f04601.png" },
-  { name: "Songket Tenun Asli Design 05", cat: "Songket", price: "RM 79.99", img: "file_00000000ac288211a71c6b110d98b666.png" },
-  { name: "Songket Tenun Asli Design 06", cat: "Songket", price: "RM 79.99", img: "file_00000000afe481f484ad7f94969f1a2a.png" },
-  { name: "Songket Tenun Asli Design 07", cat: "Songket", price: "RM 79.99", img: "file_00000000b0088211b0aa24801dd60121.png" },
-  { name: "Songket Tenun Asli Design 08", cat: "Songket", price: "RM 79.99", img: "file_00000000b1648207adb368f2ec50b81b.png" },
-  { name: "Songket Tenun Asli Design 09", cat: "Songket", price: "RM 79.99", img: "file_00000000b08482118e76d6d793d905fa.png" },
-  { name: "Songket Tenun Asli Design 10", cat: "Songket", price: "RM 79.99", img: "file_00000000b46482078781258fd3911974.png" },
-  { name: "Songket Tenun Asli Design 11", cat: "Songket", price: "RM 79.99", img: "file_00000000c30081f49ed91317fe37a2a0.png" },
-  { name: "Songket Tenun Asli Design 12", cat: "Songket", price: "RM 79.99", img: "file_00000000c5448211b98a6329da49dc08.png" },
-  { name: "Songket Tenun Asli Design 13", cat: "Songket", price: "RM 79.99", img: "file_00000000c10482118d7d13a987124b30.png" },
-  { name: "Songket Tenun Asli Design 14", cat: "Songket", price: "RM 79.99", img: "file_00000000c33882119afa6754d24891df.png" },
-  { name: "Songket Tenun Asli Design 15", cat: "Songket", price: "RM 79.99", img: "file_00000000cb1c8211a74b4d9ad2633f7b.png" },
-  { name: "Songket Tenun Asli Design 16", cat: "Songket", price: "RM 79.99", img: "file_00000000d88c820cb8717f3b5269d614.png" },
-  { name: "Songket Tenun Asli Design 17", cat: "Songket", price: "RM 79.99", img: "file_00000000e39c8211a8ae73d71e5c1e33.png" },
-  { name: "Songket Tenun Asli Design 18", cat: "Songket", price: "RM 79.99", img: "file_00000000e94c8211988b727e2b626337.png" },
-  { name: "Songket Tenun Asli Design 19", cat: "Songket", price: "RM 79.99", img: "file_00000000f00c8211a225a5c676449eba.png" },
-  { name: "Songket Tenun Asli Design 20", cat: "Songket", price: "RM 79.99", img: "file_00000000f6e082119f263f2ce103731e.png" },
-  { name: "Songket Tenun Asli Design 21", cat: "Songket", price: "RM 79.99", img: "file_00000000f9a482118b55afa280a993f3.png" },
-  { name: "Songket Tenun Asli Design 22", cat: "Songket", price: "RM 79.99", img: "file_00000000f92482118059a9233996f61b.png" },
-  { name: "Songket Tenun Asli Design 23", cat: "Songket", price: "RM 79.99", img: "file_00000000fd0c8211a8a54058c9b8562d.png" },
-  { name: "Songket Tenun Asli Design 24", cat: "Songket", price: "RM 79.99", img: "file_000000001c108211be7c766d0fed13ab.png" },
-  { name: "Songket Tenun Asli Design 25", cat: "Songket", price: "RM 79.99", img: "file_000000002fc08211919a67f474441eba.png" },
-  { name: "Songket Tenun Asli Design 26", cat: "Songket", price: "RM 79.99", img: "file_000000003a288211affa2fa8320b5f85.png" },
-  { name: "Songket Tenun Asli Design 27", cat: "Songket", price: "RM 79.99", img: "file_000000003b38821195933b2a86df416e.png" },
-  { name: "Songket Tenun Asli Design 28", cat: "Songket", price: "RM 79.99", img: "file_000000003c4081f4aa44dd7002aa07f1.png" },
-  { name: "Songket Tenun Asli Design 29", cat: "Songket", price: "RM 79.99", img: "file_000000004a808211919cdaff5e82dc56.png" },
-  { name: "Songket Tenun Asli Design 30", cat: "Songket", price: "RM 79.99", img: "file_000000004aa0820796850b8307b299b5.png" },
-  { name: "Songket Tenun Asli Design 31", cat: "Songket", price: "RM 79.99", img: "file_000000004d888211bf8a49f9852b6e00.png" },
-  { name: "Songket Tenun Asli Design 32", cat: "Songket", price: "RM 79.99", img: "file_000000004e3c8211a2fe9c1f90387539.png" },
-  { name: "Songket Tenun Asli Design 33", cat: "Songket", price: "RM 79.99", img: "file_000000004ed48211806ffc2f5518920f.png" },
-  { name: "Songket Tenun Asli Design 34", cat: "Songket", price: "RM 79.99", img: "file_000000005b308211b97797adaed4d004.png" },
-  { name: "Songket Tenun Asli Design 35", cat: "Songket", price: "RM 79.99", img: "file_000000006a9881f48689ae508d346cea.png" },
-  { name: "Songket Tenun Asli Design 36", cat: "Songket", price: "RM 79.99", img: "file_000000006b188211995ae43f5f03013f.png" },
-  { name: "Songket Tenun Asli Design 37", cat: "Songket", price: "RM 79.99", img: "file_000000006c88821196c34cc16d5ad0bb.png" },
-  { name: "Songket Tenun Asli Design 38", cat: "Songket", price: "RM 79.99", img: "file_000000009e6482119618207b67572ed1.png" },
-  { name: "Songket Tenun Asli Design 39", cat: "Songket", price: "RM 79.99", img: "file_0000000014d48211a6e56b39fce8aba8.png" },
-  { name: "Songket Tenun Asli Design 40", cat: "Songket", price: "RM 79.99", img: "file_0000000027a48211869488159c2ef3f5.png" },
-  { name: "Songket Tenun Asli Design 41", cat: "Songket", price: "RM 79.99", img: "file_0000000034bc82078fefb2d7040400f6.png" },
-  { name: "Songket Tenun Asli Design 42", cat: "Songket", price: "RM 79.99", img: "file_0000000035b482118e566c6c2db2a2a9.png" },
-  { name: "Songket Tenun Asli Design 43", cat: "Songket", price: "RM 79.99", img: "file_0000000054a8821185c0450e07cc6967.png" },
-  { name: "Songket Tenun Asli Design 44", cat: "Songket", price: "RM 79.99", img: "file_0000000070dc821198846710904dae41.png" },
-  { name: "Songket Tenun Asli Design 45", cat: "Songket", price: "RM 79.99", img: "file_0000000080e481f6a2c2cefa6aea2710.png" },
-  { name: "Songket Tenun Asli Design 46", cat: "Songket", price: "RM 79.99", img: "file_0000000090b08207a1e2bd3d24a60790.png" },
-  { name: "Songket Tenun Asli Design 47", cat: "Songket", price: "RM 79.99", img: "file_0000000097cc8211ade7cf17901e6500.png" },
-  { name: "Songket Tenun Asli Design 48", cat: "Songket", price: "RM 79.99", img: "file_00000000265c8211a930e98169f4e1de.png" },
-  { name: "Songket Tenun Asli Design 49", cat: "Songket", price: "RM 79.99", img: "file_00000000318c8211a9691dc74974d9f8.png" },
-  { name: "Songket Tenun Asli Design 50", cat: "Songket", price: "RM 79.99", img: "file_00000000355c821195b448591aee4072.png" },
-  { name: "Songket Tenun Asli Design 51", cat: "Songket", price: "RM 79.99", img: "file_00000000366c81f49ede7a951446a9b0.png" },
-  { name: "Songket Tenun Asli Design 52", cat: "Songket", price: "RM 79.99", img: "file_00000000497c821183c4a08b072ff974.png" },
-  { name: "Songket Tenun Asli Design 53", cat: "Songket", price: "RM 79.99", img: "file_00000000502c8207b85eac220afa98f0.png" },
-  { name: "Songket Tenun Asli Design 54", cat: "Songket", price: "RM 79.99", img: "file_00000000598c8211be0e445cbde9cae9.png" },
-  { name: "Songket Tenun Asli Design 55", cat: "Songket", price: "RM 79.99", img: "file_00000000818c8211ab501fb5ab5ff7a7.png" },
-  { name: "Songket Tenun Asli Design 56", cat: "Songket", price: "RM 79.99", img: "file_00000000865c8211a6f1e51cfe379759.png" },
-  { name: "Songket Tenun Asli Design 57", cat: "Songket", price: "RM 79.99", img: "file_00000000950c8207a1d16a59a9f64ce5.png" },
-  { name: "Songket Tenun Asli Design 58", cat: "Songket", price: "RM 79.99", img: "file_0000000025788211adb7f0cc1066cbf9.png" },
-  { name: "Songket Tenun Asli Design 59", cat: "Songket", price: "RM 79.99", img: "file_0000000026748211a16f3385c819cfad.png" },
-  { name: "Songket Tenun Asli Design 60", cat: "Songket", price: "RM 79.99", img: "file_0000000046448211bd8fbe05c17dd698.png" },
-  { name: "Songket Tenun Asli Design 61", cat: "Songket", price: "RM 79.99", img: "file_0000000050948211b8b02589f9a6d5f3.png" },
-  { name: "Songket Tenun Asli Design 62", cat: "Songket", price: "RM 79.99", img: "file_0000000051008211b22dcb5f6e999708.png" },
-  { name: "Songket Tenun Asli Design 63", cat: "Songket", price: "RM 79.99", img: "file_0000000071888211a7fb155c5377a436.png" },
-  { name: "Songket Tenun Asli Design 64", cat: "Songket", price: "RM 79.99", img: "file_0000000085288211a41035e5bac57031.png" },
-  { name: "Songket Tenun Asli Design 65", cat: "Songket", price: "RM 79.99", img: "file_00000000617082119e60d5461b95e87f.png" },
-  { name: "Songket Tenun Asli Design 66", cat: "Songket", price: "RM 79.99", img: "file_000000002898821180a92e3f9d9bb0ee.png" },
-  { name: "Songket Tenun Asli Design 67", cat: "Songket", price: "RM 79.99", img: "file_0000000041408211984816eb391d9781.png" },
-  { name: "Songket Tenun Asli Design 68", cat: "Songket", price: "RM 79.99", img: "file_0000000074248211835327ef60526421.png" },
-  { name: "Songket Tenun Asli Design 69", cat: "Songket", price: "RM 79.99", img: "file_0000000084508211850e0626d77b242f.png" },
-
-];
-
-// 3. CART
-let cart = [];
-let currentPage = 1;
-let currentFilter = "all";
-
-// 4. HTML ELEMENTS
-const grid = document.getElementById("products");
-const pager = document.getElementById("pagination");
-const filterButtons = document.querySelectorAll(".filters button");
-const cartItems = document.getElementById("cart-items");
-const cartEmpty = document.getElementById("cart-empty");
-const cartTotal = document.getElementById("cart-total");
-
-// 5. HELPERS
-function escapeHTML(value) {
-  return String(value).replace(/[&<>"']/g, char => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;"
-  })[char]);
-}
-
-function getPrice(product) {
-  return Number(String(product.price).replace(/[^\d.]/g, "")) || 0;
-}
-
-function getFilteredProducts() {
-  return currentFilter === "all"
-    ? PRODUCTS
-    : PRODUCTS.filter(product => product.cat === currentFilter);
-}
-
-function getVisibleProducts() {
-  const products = getFilteredProducts();
-  const start = (currentPage - 1) * PER_PAGE;
-  return products.slice(start, start + PER_PAGE);
-}
-
-// 6. RENDER PRODUCT GRID
-function renderProducts() {
-  if (!grid || !pager) return;
-
-  const products = getFilteredProducts();
-  const totalPages = Math.max(1, Math.ceil(products.length / PER_PAGE));
-
-  currentPage = Math.min(Math.max(currentPage, 1), totalPages);
-
-  const visible = getVisibleProducts();
-
-  if (visible.length === 0) {
-    grid.innerHTML = '<p class="empty">No designs found.</p>';
-  } else {
-    grid.innerHTML = visible.map((product, index) => `
-      <article class="product-card">
-        <img
-          src="${escapeHTML(IMG + product.img)}"
-          alt="${escapeHTML(product.name)}"
-          loading="lazy"
-        >
-
-        <div class="product-info">
-          <h3>${escapeHTML(product.name)}</h3>
-          <p>${escapeHTML(product.cat)}</p>
-          <p class="price">${escapeHTML(product.price)}</p>
-
-          <div class="product-actions">
-            <button type="button" class="btn buy-now"
-              data-action="buy" data-index="${index}">
-              Buy Now
-            </button>
-
-            <button type="button" class="btn add-cart"
-              data-action="cart" data-index="${index}">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </article>
-    `).join("");
-  }
-
-  renderPagination(totalPages);
-}
-
-// 7. RENDER PAGINATION
-function renderPagination(totalPages) {
-  let html = `
-    <button type="button" data-page="${currentPage - 1}"
-      ${currentPage === 1 ? "disabled" : ""}>Previous</button>
-  `;
-
-  for (let page = 1; page <= totalPages; page++) {
-    html += `
-      <button type="button" data-page="${page}"
-        class="${page === currentPage ? "active" : ""}"
-        ${page === currentPage ? 'aria-current="page"' : ""}>
-        ${page}
+      <button id="checkout-btn" type="button">
+        Checkout on WhatsApp
       </button>
-    `;
-  }
+    </div>
+  </section>
 
-  html += `
-    <button type="button" data-page="${currentPage + 1}"
-      ${currentPage === totalPages ? "disabled" : ""}>Next</button>
-  `;
+  <footer>
+    &copy; <span id="year"></span> Malaya Collection 18. All rights reserved.
+  </footer>
 
-  pager.innerHTML = html;
-}
+  <canvas id="gold-event-animation"></canvas>
 
-// 8. ADD TO CART
-// Product image uses IMG + product.img.
-// Product name uses product.name.
-// Product identity uses product.name because no id exists in PRODUCTS.
-function addToCart(product) {
-  const existing = cart.find(item => item.name === product.name);
+  <script>
+    /* ==========================================
+       SAMPIN TENUN MANUAL
+       PRODUCTS + SALE PRICE + PAGINATION + CART
+    ========================================== */
 
-  if (existing) {
-    existing.quantity++;
-  } else {
-    cart.push({
-      ...product,
-      quantity: 1
-    });
-  }
+    // 1. SETTINGS
 
-  renderCart();
+    const WHATSAPP = "60137358951";
+    const PER_PAGE = 10;
+    const IMG = "assets/images/images wedding/";
 
-  document.getElementById("cart-section")?.scrollIntoView({
-    behavior: "smooth",
-    block: "start"
-  });
-}
+    const ORIGINAL_PRICE = 79.99;
+    const SALE_PRICE = 55.99;
 
-// 9. DISPLAY CART WITH SELECTED PRODUCT IMAGE
-function renderCart() {
-  if (!cartItems || !cartEmpty || !cartTotal) return;
+    const ORIGINAL_PRICE_TEXT = "RM 79.99";
+    const SALE_PRICE_TEXT = "RM 55.99";
 
-  cartItems.innerHTML = "";
-  cartEmpty.style.display = cart.length ? "none" : "block";
+    // 2. ORIGINAL PRODUCT IMAGE FILENAMES
+    // All 69 original image filenames are retained.
 
-  let total = 0;
+    const PRODUCT_IMAGES = [
+      "file_000000000c4082119fd33d55e7e3e2ad.png",
+      "file_000000000e848211acd6200f1139cdf9.png",
+      "file_00000000a4c0821185423000093e27ab.png",
+      "file_00000000a73c821187e939e264f04601.png",
+      "file_00000000ac288211a71c6b110d98b666.png",
+      "file_00000000afe481f484ad7f94969f1a2a.png",
+      "file_00000000b0088211b0aa24801dd60121.png",
+      "file_00000000b1648207adb368f2ec50b81b.png",
+      "file_00000000b08482118e76d6d793d905fa.png",
+      "file_00000000b46482078781258fd3911974.png",
+      "file_00000000c30081f49ed91317fe37a2a0.png",
+      "file_00000000c5448211b98a6329da49dc08.png",
+      "file_00000000c10482118d7d13a987124b30.png",
+      "file_00000000c33882119afa6754d24891df.png",
+      "file_00000000cb1c8211a74b4d9ad2633f7b.png",
+      "file_00000000d88c820cb8717f3b5269d614.png",
+      "file_00000000e39c8211a8ae73d71e5c1e33.png",
+      "file_00000000e94c8211988b727e2b626337.png",
+      "file_00000000f00c8211a225a5c676449eba.png",
+      "file_00000000f6e082119f263f2ce103731e.png",
+      "file_00000000f9a482118b55afa280a993f3.png",
+      "file_00000000f92482118059a9233996f61b.png",
+      "file_00000000fd0c8211a8a54058c9b8562d.png",
+      "file_000000001c108211be7c766d0fed13ab.png",
+      "file_000000002fc08211919a67f474441eba.png",
+      "file_000000003a288211affa2fa8320b5f85.png",
+      "file_000000003b38821195933b2a86df416e.png",
+      "file_000000003c4081f4aa44dd7002aa07f1.png",
+      "file_000000004a808211919cdaff5e82dc56.png",
+      "file_000000004aa0820796850b8307b299b5.png",
+      "file_000000004d888211bf8a49f9852b6e00.png",
+      "file_000000004e3c8211a2fe9c1f90387539.png",
+      "file_000000004ed48211806ffc2f5518920f.png",
+      "file_000000005b308211b97797adaed4d004.png",
+      "file_000000006a9881f48689ae508d346cea.png",
+      "file_000000006b188211995ae43f5f03013f.png",
+      "file_000000006c88821196c34cc16d5ad0bb.png",
+      "file_000000009e6482119618207b67572ed1.png",
+      "file_0000000014d48211a6e56b39fce8aba8.png",
+      "file_0000000027a48211869488159c2ef3f5.png",
+      "file_0000000034bc82078fefb2d7040400f6.png",
+      "file_0000000035b482118e566c6c2db2a2a9.png",
+      "file_0000000054a8821185c0450e07cc6967.png",
+      "file_0000000070dc821198846710904dae41.png",
+      "file_0000000080e481f6a2c2cefa6aea2710.png",
+      "file_0000000090b08207a1e2bd3d24a60790.png",
+      "file_0000000097cc8211ade7cf17901e6500.png",
+      "file_00000000265c8211a930e98169f4e1de.png",
+      "file_00000000318c8211a9691dc74974d9f8.png",
+      "file_00000000355c821195b448591aee4072.png",
+      "file_00000000366c81f49ede7a951446a9b0.png",
+      "file_00000000497c821183c4a08b072ff974.png",
+      "file_00000000502c8207b85eac220afa98f0.png",
+      "file_00000000598c8211be0e445cbde9cae9.png",
+      "file_00000000818c8211ab501fb5ab5ff7a7.png",
+      "file_00000000865c8211a6f1e51cfe379759.png",
+      "file_00000000950c8207a1d16a59a9f64ce5.png",
+      "file_0000000025788211adb7f0cc1066cbf9.png",
+      "file_0000000026748211a16f3385c819cfad.png",
+      "file_0000000046448211bd8fbe05c17dd698.png",
+      "file_0000000050948211b8b02589f9a6d5f3.png",
+      "file_0000000051008211b22dcb5f6e999708.png",
+      "file_0000000071888211a7fb155c5377a436.png",
+      "file_0000000085288211a41035e5bac57031.png",
+      "file_00000000617082119e60d5461b95e87f.png",
+      "file_000000002898821180a92e3f9d9bb0ee.png",
+      "file_0000000041408211984816eb391d9781.png",
+      "file_0000000074248211835327ef60526421.png",
+      "file_0000000084508211850e0626d77b242f.png"
+    ];
 
-  cart.forEach(item => {
-    const price = getPrice(item);
-    total += price * item.quantity;
+    // 3. PRODUCTS ARRAY
 
-    const row = document.createElement("article");
-    row.className = "cart-item";
+    const PRODUCTS = PRODUCT_IMAGES.map((image, index) => ({
+      name: `Songket Tenun Asli Design ${String(index + 1).padStart(2, "0")}`,
+      cat: "Songket",
+      originalPrice: ORIGINAL_PRICE_TEXT,
+      salePrice: SALE_PRICE_TEXT,
+      img: image
+    }));
 
-    row.innerHTML = `
-      <img
-        src="${escapeHTML(IMG + item.img)}"
-        alt="${escapeHTML(item.name)}"
-        loading="lazy"
-      >
+    // 4. CART AND PAGINATION VARIABLES
 
-      <div class="cart-item-info">
-        <h4>${escapeHTML(item.name)}</h4>
-        <p>${escapeHTML(item.price)}</p>
+    let cart = [];
+    let currentPage = 1;
 
-        <button type="button"
-          data-cart-action="minus"
-          data-name="${escapeHTML(item.name)}">−</button>
+    // 5. HTML ELEMENTS
 
-        <span aria-label="Quantity">${item.quantity}</span>
+    const grid = document.getElementById("products");
+    const pager = document.getElementById("pagination");
+    const cartItems = document.getElementById("cart-items");
+    const cartEmpty = document.getElementById("cart-empty");
+    const cartTotal = document.getElementById("cart-total");
 
-        <button type="button"
-          data-cart-action="plus"
-          data-name="${escapeHTML(item.name)}">+</button>
+    // 6. HELPERS
 
-        <button type="button" class="remove-item"
-          data-cart-action="remove"
-          data-name="${escapeHTML(item.name)}">
-          Remove
+    function escapeHTML(value) {
+      return String(value).replace(/[&<>"']/g, char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      })[char]);
+    }
+
+    function getPrice(product) {
+      return SALE_PRICE;
+    }
+
+    function getVisibleProducts() {
+      const start = (currentPage - 1) * PER_PAGE;
+      return PRODUCTS.slice(start, start + PER_PAGE);
+    }
+
+    // 7. RENDER PRODUCTS
+
+    function renderProducts() {
+      if (!grid || !pager) return;
+
+      const totalPages = Math.max(
+        1,
+        Math.ceil(PRODUCTS.length / PER_PAGE)
+      );
+
+      currentPage = Math.min(
+        Math.max(currentPage, 1),
+        totalPages
+      );
+
+      const visible = getVisibleProducts();
+
+      if (visible.length === 0) {
+        grid.innerHTML = '<p class="empty">No designs found.</p>';
+      } else {
+        grid.innerHTML = visible.map((product, index) => `
+          <article class="product-card">
+
+            <img
+              src="${escapeHTML(IMG + product.img)}"
+              alt="${escapeHTML(product.name)}"
+              loading="lazy"
+            >
+
+            <div class="product-info">
+
+              <h3>${escapeHTML(product.name)}</h3>
+
+              <p>${escapeHTML(product.cat)}</p>
+
+              <span class="sale-badge">SPECIAL SALE</span>
+
+              <p class="price">
+                <del class="old-price">
+                  ${escapeHTML(product.originalPrice)}
+                </del>
+
+                <span class="sale-price">
+                  ${escapeHTML(product.salePrice)}
+                </span>
+              </p>
+
+              <div class="product-actions">
+
+                <button
+                  type="button"
+                  class="btn buy-now"
+                  data-action="buy"
+                  data-index="${index}">
+                  Buy Now
+                </button>
+
+                <button
+                  type="button"
+                  class="btn add-cart"
+                  data-action="cart"
+                  data-index="${index}">
+                  Add to Cart
+                </button>
+
+              </div>
+            </div>
+          </article>
+        `).join("");
+      }
+
+      renderPagination(totalPages);
+    }
+
+    // 8. RENDER PAGINATION
+
+    function renderPagination(totalPages) {
+      let html = `
+        <button
+          type="button"
+          data-page="${currentPage - 1}"
+          ${currentPage === 1 ? "disabled" : ""}>
+          Previous
         </button>
-      </div>
-    `;
+      `;
 
-    cartItems.appendChild(row);
-  });
+      for (let page = 1; page <= totalPages; page++) {
+        html += `
+          <button
+            type="button"
+            data-page="${page}"
+            class="${page === currentPage ? "active" : ""}"
+            ${page === currentPage ? 'aria-current="page"' : ""}>
+            ${page}
+          </button>
+        `;
+      }
 
-  cartTotal.textContent = `RM ${total.toFixed(2)}`;
-}
+      html += `
+        <button
+          type="button"
+          data-page="${currentPage + 1}"
+          ${currentPage === totalPages ? "disabled" : ""}>
+          Next
+        </button>
+      `;
 
-// 10. CART BUTTONS: PLUS, MINUS, REMOVE
-if (cartItems) {
-  cartItems.addEventListener("click", function(event) {
-    const button = event.target.closest("[data-cart-action]");
-    if (!button) return;
+      pager.innerHTML = html;
+    }
 
-    const name = button.dataset.name;
-    const item = cart.find(product => product.name === name);
+    // 9. ADD TO CART
 
-    if (!item) return;
+    function addToCart(product) {
+      const existing = cart.find(
+        item => item.name === product.name
+      );
 
-    switch (button.dataset.cartAction) {
-      case "plus":
-        item.quantity++;
-        break;
+      if (existing) {
+        existing.quantity++;
+      } else {
+        cart.push({
+          ...product,
+          quantity: 1
+        });
+      }
 
-      case "minus":
-        item.quantity--;
+      renderCart();
 
-        if (item.quantity <= 0) {
-          cart = cart.filter(product => product.name !== name);
+      document.getElementById("cart-section")?.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+
+    // 10. DISPLAY CART
+
+    function renderCart() {
+      if (!cartItems || !cartEmpty || !cartTotal) return;
+
+      cartItems.innerHTML = "";
+
+      cartEmpty.style.display = cart.length ? "none" : "block";
+
+      let total = 0;
+
+      cart.forEach(item => {
+        const price = getPrice(item);
+        const subtotal = price * item.quantity;
+
+        total += subtotal;
+
+        const row = document.createElement("article");
+        row.className = "cart-item";
+
+        row.innerHTML = `
+          <img
+            src="${escapeHTML(IMG + item.img)}"
+            alt="${escapeHTML(item.name)}"
+            loading="lazy"
+          >
+
+          <div class="cart-item-info">
+
+            <h4>${escapeHTML(item.name)}</h4>
+
+            <p>
+              <del class="old-price">
+                ${escapeHTML(item.originalPrice)}
+              </del>
+
+              <span class="sale-price">
+                ${escapeHTML(item.salePrice)}
+              </span>
+            </p>
+
+            <p>Subtotal: RM ${subtotal.toFixed(2)}</p>
+
+            <button
+              type="button"
+              data-cart-action="minus"
+              data-name="${escapeHTML(item.name)}">
+              −
+            </button>
+
+            <span aria-label="Quantity">${item.quantity}</span>
+
+            <button
+              type="button"
+              data-cart-action="plus"
+              data-name="${escapeHTML(item.name)}">
+              +
+            </button>
+
+            <button
+              type="button"
+              class="remove-item"
+              data-cart-action="remove"
+              data-name="${escapeHTML(item.name)}">
+              Remove
+            </button>
+
+          </div>
+        `;
+
+        cartItems.appendChild(row);
+      });
+
+      cartTotal.textContent = `RM ${total.toFixed(2)}`;
+    }
+
+    // 11. CART BUTTONS: PLUS, MINUS, REMOVE
+
+    if (cartItems) {
+      cartItems.addEventListener("click", function(event) {
+        const button = event.target.closest("[data-cart-action]");
+
+        if (!button) return;
+
+        const name = button.dataset.name;
+
+        const item = cart.find(
+          product => product.name === name
+        );
+
+        if (!item) return;
+
+        switch (button.dataset.cartAction) {
+
+          case "plus":
+            item.quantity++;
+            break;
+
+          case "minus":
+            item.quantity--;
+
+            if (item.quantity <= 0) {
+              cart = cart.filter(
+                product => product.name !== name
+              );
+            }
+            break;
+
+          case "remove":
+            cart = cart.filter(
+              product => product.name !== name
+            );
+            break;
         }
-        break;
 
-      case "remove":
-        cart = cart.filter(product => product.name !== name);
-        break;
+        renderCart();
+      });
     }
 
-    renderCart();
-  });
-}
+    // 12. CLEAR CART
 
-// 11. CLEAR CART
-const clearCartButton = document.getElementById("clear-cart");
+    const clearCartButton = document.getElementById("clear-cart");
 
-if (clearCartButton) {
-  clearCartButton.addEventListener("click", function() {
-    cart = [];
-    renderCart();
-  });
-}
-
-// 12. WHATSAPP CHECKOUT
-const checkoutButton = document.getElementById("checkout-btn");
-
-if (checkoutButton) {
-  checkoutButton.addEventListener("click", function() {
-    if (cart.length === 0) {
-      alert("Your cart is empty!");
-      return;
+    if (clearCartButton) {
+      clearCartButton.addEventListener("click", function() {
+        cart = [];
+        renderCart();
+      });
     }
 
-    const lines = cart.map(item => {
-      const subtotal = getPrice(item) * item.quantity;
+    // 13. WHATSAPP CHECKOUT
 
-      return `${item.name}\n` +
-        `Quantity: ${item.quantity}\n` +
-        `Price each: ${item.price}\n` +
-        `Subtotal: RM ${subtotal.toFixed(2)}`;
-    });
+    const checkoutButton = document.getElementById("checkout-btn");
 
-    const total = cart.reduce(
-      (sum, item) => sum + getPrice(item) * item.quantity,
-      0
-    );
+    if (checkoutButton) {
+      checkoutButton.addEventListener("click", function() {
 
-    const message =
-      "Hello! I want to order from SAMPIN TENUN MANUAL.\n\n" +
-      lines.join("\n\n") +
-      `\n\nTotal: RM ${total.toFixed(2)}`;
+        if (cart.length === 0) {
+          alert("Your cart is empty!");
+          return;
+        }
 
-    const url =
-      `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`;
+        const lines = cart.map(item => {
+          const subtotal = getPrice(item) * item.quantity;
 
-    window.open(url, "_blank");
-  });
-}
+          return `${item.name}\n` +
+            `Quantity: ${item.quantity}\n` +
+            `Original Price: ${item.originalPrice}\n` +
+            `Sale Price: ${item.salePrice}\n` +
+            `Subtotal: RM ${subtotal.toFixed(2)}`;
+        });
 
-// 13. BUY NOW
-function buyNow(product) {
-  const message =
-    "Hello! I want to order from SAMPIN TENUN MANUAL.\n\n" +
-    `Product: ${product.name}\n` +
-    `Price: ${product.price}\n` +
-    "Please confirm availability.";
+        const total = cart.reduce(
+          (sum, item) =>
+            sum + getPrice(item) * item.quantity,
+          0
+        );
 
-  window.open(
-    `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`,
-    "_blank"
-  );
-}
+        const message =
+          "Hello! I want to order from SAMPIN TENUN MANUAL.\n\n" +
+          lines.join("\n\n") +
+          `\n\nTotal: RM ${total.toFixed(2)}`;
 
-// 14. PRODUCT GRID BUTTON EVENTS
-if (grid) {
-  grid.addEventListener("click", function(event) {
-    const button = event.target.closest("[data-action]");
-    if (!button) return;
+        const url =
+          `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`;
 
-    const index = Number(button.dataset.index);
-    const product = getVisibleProducts()[index];
-
-    if (!product) return;
-
-    if (button.dataset.action === "cart") {
-      addToCart(product);
-    } else if (button.dataset.action === "buy") {
-      buyNow(product);
+        window.open(url, "_blank");
+      });
     }
-  });
-}
 
-// 15. FILTER EVENTS
-filterButtons.forEach(button => {
-  button.addEventListener("click", function() {
-    currentFilter = this.dataset.filter;
-    currentPage = 1;
+    // 14. BUY NOW
 
-    filterButtons.forEach(filter => {
-      filter.classList.toggle("active", filter === this);
-    });
+    function buyNow(product) {
+
+      const message =
+        "Hello! I want to order from SAMPIN TENUN MANUAL.\n\n" +
+        `Product: ${product.name}\n` +
+        `Original Price: ${product.originalPrice}\n` +
+        `Sale Price: ${product.salePrice}\n` +
+        "Please confirm availability.";
+
+      window.open(
+        `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`,
+        "_blank"
+      );
+    }
+
+    // 15. PRODUCT BUTTON EVENTS
+
+    if (grid) {
+      grid.addEventListener("click", function(event) {
+
+        const button = event.target.closest("[data-action]");
+
+        if (!button) return;
+
+        const index = Number(button.dataset.index);
+
+        const product = getVisibleProducts()[index];
+
+        if (!product) return;
+
+        if (button.dataset.action === "cart") {
+          addToCart(product);
+        } else if (button.dataset.action === "buy") {
+          buyNow(product);
+        }
+      });
+    }
+
+    // 16. PAGINATION EVENTS
+
+    if (pager) {
+      pager.addEventListener("click", function(event) {
+
+        const button = event.target.closest("[data-page]");
+
+        if (!button || button.disabled) return;
+
+        currentPage = Number(button.dataset.page);
+
+        renderProducts();
+
+        document.getElementById("designs")?.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      });
+    }
+
+    // 17. FOOTER YEAR
+
+    const yearElement = document.getElementById("year");
+
+    if (yearElement) {
+      yearElement.textContent = new Date().getFullYear();
+    }
+
+    // 18. INITIAL DISPLAY
 
     renderProducts();
-  });
-});
-
-// 16. PAGINATION EVENTS
-if (pager) {
-  pager.addEventListener("click", function(event) {
-    const button = event.target.closest("[data-page]");
-    if (!button || button.disabled) return;
-
-    currentPage = Number(button.dataset.page);
-    renderProducts();
-
-    document.getElementById("designs")?.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
-  });
-}
-
-// 17. FOOTER YEAR
-const yearElement = document.getElementById("year");
-
-if (yearElement) {
-  yearElement.textContent = new Date().getFullYear();
-}
-
-// 18. INITIAL DISPLAY
-renderProducts();
-renderCart();
+    renderCart();
 
 
+    /* ==========================================
+       GOLDEN PARTICLES AND LIGHT RAYS ANIMATION
+    ========================================== */
 
+    (() => {
 
+      const canvas = document.getElementById("gold-event-animation");
 
+      if (!canvas) return;
 
+      const ctx = canvas.getContext("2d", { alpha: true });
 
+      if (!ctx) return;
 
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        return;
+      }
 
+      let W, H;
+      let particles = [];
+      let bokeh = [];
+      let rays = [];
+      let running = false;
+      let raf = 0;
+      let lastTime = 0;
 
-(() => {
-    const canvas = document.getElementById("gold-event-animation");
-    if (!canvas) return;
-
-    const ctx = canvas.getContext("2d", { alpha: true });
-    if (!ctx) return;
-
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-    let W, H, particles = [], bokeh = [], rays = [];
-    let running = false;
-    let raf = 0;
-    let lastTime = 0;
-
-    const COLORS = [
+      const COLORS = [
         "#fffdf0",
         "#fff0bd",
         "#ffe08a",
         "#ffca53",
         "#f5ad35",
         "#d99535"
-    ];
+      ];
 
-    // CANVAS SETUP
+      function resize() {
 
-    function resize() {
         W = window.innerWidth;
         H = window.innerHeight;
 
@@ -1349,80 +1335,82 @@ renderCart();
         canvas.height = Math.round(H * quality);
 
         ctx.setTransform(
-            canvas.width / W, 0,
-            0, canvas.height / H,
-            0, 0
+          canvas.width / W, 0,
+          0, canvas.height / H,
+          0, 0
         );
 
         createParticles();
         createBokeh();
         createRays();
-    }
+      }
 
-    // GOLDEN DUST PARTICLES
+      function createParticles() {
 
-    function createParticles() {
         particles = [];
 
         const count = Math.min(
-            350,
-            Math.max(120, Math.floor(W * H / 4000))
+          350,
+          Math.max(120, Math.floor(W * H / 4000))
         );
 
         for (let i = 0; i < count; i++) {
-            particles.push({
-                x: Math.random() * W,
-                y: Math.random() * H,
-                size: Math.random() * 1.7 + 0.4,
-                speed: Math.random() * 0.35 + 0.08,
-                drift: Math.random() * 0.7 - 0.35,
-                alpha: Math.random() * 0.7 + 0.2,
-                color: COLORS[Math.floor(Math.random() * COLORS.length)],
-                phase: Math.random() * 10
-            });
+
+          particles.push({
+            x: Math.random() * W,
+            y: Math.random() * H,
+            size: Math.random() * 1.7 + 0.4,
+            speed: Math.random() * 0.35 + 0.08,
+            drift: Math.random() * 0.7 - 0.35,
+            alpha: Math.random() * 0.7 + 0.2,
+            color: COLORS[Math.floor(Math.random() * COLORS.length)],
+            phase: Math.random() * 10
+          });
+
         }
-    }
+      }
 
-    // SOFT GOLDEN BOKEH
+      function createBokeh() {
 
-    function createBokeh() {
         bokeh = [];
 
         for (let i = 0; i < 35; i++) {
-            bokeh.push({
-                x: Math.random() * W,
-                y: Math.random() * H,
-                size: Math.random() * 13 + 3,
-                speed: Math.random() * 0.2 + 0.04,
-                alpha: Math.random() * 0.22 + 0.06,
-                phase: Math.random() * 10
-            });
+
+          bokeh.push({
+            x: Math.random() * W,
+            y: Math.random() * H,
+            size: Math.random() * 13 + 3,
+            speed: Math.random() * 0.2 + 0.04,
+            alpha: Math.random() * 0.22 + 0.06,
+            phase: Math.random() * 10
+          });
+
         }
-    }
+      }
 
-    // DIAGONAL LIGHT RAYS
+      function createRays() {
 
-    function createRays() {
         rays = [];
 
         for (let i = 0; i < 13; i++) {
-            rays.push({
-                x: Math.random() * W,
-                y: Math.random() * H,
-                length: Math.random() * H * 0.55 + H * 0.2,
-                speed: Math.random() * 0.3 + 0.08,
-                alpha: Math.random() * 0.24 + 0.06,
-                width: Math.random() * 1.5 + 0.5
-            });
+
+          rays.push({
+            x: Math.random() * W,
+            y: Math.random() * H,
+            length: Math.random() * H * 0.55 + H * 0.2,
+            speed: Math.random() * 0.3 + 0.08,
+            alpha: Math.random() * 0.24 + 0.06,
+            width: Math.random() * 1.5 + 0.5
+          });
+
         }
-    }
+      }
 
-    // GOLDEN ATMOSPHERE
+      function drawAtmosphere() {
 
-    function drawAtmosphere() {
         const glow = ctx.createRadialGradient(
-            W * 0.48, H * 0.45, 0,
-            W * 0.48, H * 0.45, Math.max(W, H) * 0.75
+          W * 0.48, H * 0.45, 0,
+          W * 0.48, H * 0.45, Math.max(W, H) * 0.75
         );
 
         glow.addColorStop(0, "rgba(255,190,80,0.13)");
@@ -1431,141 +1419,146 @@ renderCart();
 
         ctx.fillStyle = glow;
         ctx.fillRect(0, 0, W, H);
-    }
+      }
 
-    // DIAGONAL LIGHT BEAMS
+      function drawRays(dt) {
 
-    function drawRays(dt) {
         rays.forEach(ray => {
-            ray.x += ray.speed * dt;
-            ray.y += ray.speed * dt * 0.55;
 
-            if (ray.x > W + 100) {
-                ray.x = -100;
-                ray.y = Math.random() * H * 0.6;
-            }
+          ray.x += ray.speed * dt;
+          ray.y += ray.speed * dt * 0.55;
 
-            const gradient = ctx.createLinearGradient(
-                ray.x,
-                ray.y,
-                ray.x - ray.length * 0.65,
-                ray.y - ray.length
-            );
+          if (ray.x > W + 100) {
+            ray.x = -100;
+            ray.y = Math.random() * H * 0.6;
+          }
 
-            gradient.addColorStop(0, "rgba(255,225,150,0)");
-            gradient.addColorStop(0.45,
-                `rgba(255,220,145,${ray.alpha})`);
-            gradient.addColorStop(1, "rgba(255,190,70,0)");
+          const gradient = ctx.createLinearGradient(
+            ray.x,
+            ray.y,
+            ray.x - ray.length * 0.65,
+            ray.y - ray.length
+          );
 
-            ctx.strokeStyle = gradient;
-            ctx.lineWidth = ray.width;
+          gradient.addColorStop(0, "rgba(255,225,150,0)");
+          gradient.addColorStop(
+            0.45,
+            `rgba(255,220,145,${ray.alpha})`
+          );
+          gradient.addColorStop(1, "rgba(255,190,70,0)");
 
-            ctx.beginPath();
-            ctx.moveTo(ray.x, ray.y);
-            ctx.lineTo(
-                ray.x - ray.length * 0.65,
-                ray.y - ray.length
-            );
-            ctx.stroke();
+          ctx.strokeStyle = gradient;
+          ctx.lineWidth = ray.width;
+
+          ctx.beginPath();
+          ctx.moveTo(ray.x, ray.y);
+          ctx.lineTo(
+            ray.x - ray.length * 0.65,
+            ray.y - ray.length
+          );
+          ctx.stroke();
+
         });
-    }
+      }
 
-    // PARTICLE MOVEMENT
+      function drawParticles(dt, timestamp) {
 
-    function drawParticles(dt, timestamp) {
         particles.forEach(p => {
-            p.x += p.drift * dt;
-            p.y -= p.speed * dt;
 
-            if (p.y < -5) {
-                p.y = H + 5;
-                p.x = Math.random() * W;
-            }
+          p.x += p.drift * dt;
+          p.y -= p.speed * dt;
 
-            if (p.x < -5) p.x = W + 5;
-            if (p.x > W + 5) p.x = -5;
+          if (p.y < -5) {
+            p.y = H + 5;
+            p.x = Math.random() * W;
+          }
 
-            const flicker = 0.55 +
-                Math.sin(timestamp * 0.003 + p.phase) * 0.45;
+          if (p.x < -5) p.x = W + 5;
+          if (p.x > W + 5) p.x = -5;
 
-            ctx.globalAlpha = p.alpha * flicker;
-            ctx.fillStyle = p.color;
+          const flicker = 0.55 +
+            Math.sin(timestamp * 0.003 + p.phase) * 0.45;
 
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-            ctx.fill();
+          ctx.globalAlpha = p.alpha * flicker;
+          ctx.fillStyle = p.color;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fill();
+
         });
-    }
+      }
 
-    // BLURRED LIGHT SPOTS
+      function drawBokeh(dt, timestamp) {
 
-    function drawBokeh(dt, timestamp) {
         bokeh.forEach(p => {
-            p.y -= p.speed * dt;
 
-            if (p.y < -30) {
-                p.y = H + 30;
-                p.x = Math.random() * W;
-            }
+          p.y -= p.speed * dt;
 
-            const pulse = 0.65 +
-                Math.sin(timestamp * 0.001 + p.phase) * 0.35;
+          if (p.y < -30) {
+            p.y = H + 30;
+            p.x = Math.random() * W;
+          }
 
-            ctx.globalAlpha = p.alpha * pulse;
-            ctx.fillStyle = "#ffcc75";
+          const pulse = 0.65 +
+            Math.sin(timestamp * 0.001 + p.phase) * 0.35;
 
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-            ctx.fill();
+          ctx.globalAlpha = p.alpha * pulse;
+          ctx.fillStyle = "#ffcc75";
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fill();
+
         });
-    }
+      }
 
-    // BRIGHT GOLDEN FLASHES
+      function drawFlashes(timestamp) {
 
-    function drawFlashes(timestamp) {
         const locations = [
-            [0.22, 0.25],
-            [0.73, 0.68],
-            [0.48, 0.42],
-            [0.86, 0.22]
+          [0.22, 0.25],
+          [0.73, 0.68],
+          [0.48, 0.42],
+          [0.86, 0.22]
         ];
 
         locations.forEach((pos, i) => {
-            const x = W * pos[0];
-            const y = H * pos[1];
 
-            const pulse = (Math.sin(timestamp * 0.0015 + i * 2) + 1) / 2;
+          const x = W * pos[0];
+          const y = H * pos[1];
 
-            if (pulse < 0.72) return;
+          const pulse =
+            (Math.sin(timestamp * 0.0015 + i * 2) + 1) / 2;
 
-            const size = 4 + pulse * 7;
+          if (pulse < 0.72) return;
 
-            ctx.save();
-            ctx.globalAlpha = pulse;
+          const size = 4 + pulse * 7;
 
-            // Four point star
-            ctx.strokeStyle = "#fff2c8";
-            ctx.lineWidth = 1.2;
+          ctx.save();
+          ctx.globalAlpha = pulse;
+          ctx.strokeStyle = "#fff2c8";
+          ctx.lineWidth = 1.2;
 
-            ctx.beginPath();
-            ctx.moveTo(x - size * 2, y);
-            ctx.lineTo(x + size * 2, y);
-            ctx.moveTo(x, y - size * 2);
-            ctx.lineTo(x, y + size * 2);
-            ctx.stroke();
+          ctx.beginPath();
+          ctx.moveTo(x - size * 2, y);
+          ctx.lineTo(x + size * 2, y);
+          ctx.moveTo(x, y - size * 2);
+          ctx.lineTo(x, y + size * 2);
+          ctx.stroke();
 
-            ctx.fillStyle = "#ffffff";
-            ctx.beginPath();
-            ctx.arc(x, y, 2.5, 0, Math.PI * 2);
-            ctx.fill();
+          ctx.fillStyle = "#ffffff";
 
-            ctx.restore();
+          ctx.beginPath();
+          ctx.arc(x, y, 2.5, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.restore();
+
         });
-    }
+      }
 
-    // MAIN LOOP - 30 FPS
+      function animate(timestamp) {
 
-    function animate(timestamp) {
         if (!running) return;
 
         raf = requestAnimationFrame(animate);
@@ -1573,8 +1566,8 @@ renderCart();
         if (timestamp - lastTime < 33) return;
 
         const dt = Math.min(
-            (timestamp - lastTime) / 16.67,
-            2
+          (timestamp - lastTime) / 16.67,
+          2
         );
 
         lastTime = timestamp;
@@ -1591,52 +1584,49 @@ renderCart();
 
         ctx.globalAlpha = 1;
         ctx.globalCompositeOperation = "source-over";
-    }
+      }
 
-    // AUTO PAUSE WHEN TAB IS HIDDEN
+      function start() {
 
-    function start() {
         if (running) return;
+
         running = true;
         lastTime = 0;
         raf = requestAnimationFrame(animate);
-    }
+      }
 
-    function stop() {
+      function stop() {
+
         running = false;
         cancelAnimationFrame(raf);
-    }
+      }
 
-    document.addEventListener("visibilitychange", () => {
-        if (document.hidden) stop();
-        else start();
-    });
+      document.addEventListener("visibilitychange", () => {
 
-    // INITIALIZE
+        if (document.hidden) {
+          stop();
+        } else {
+          start();
+        }
 
-    resize();
-    start();
+      });
 
-    let resizeTimer;
+      resize();
+      start();
 
-    window.addEventListener("resize", () => {
+      let resizeTimer;
+
+      window.addEventListener("resize", () => {
+
         clearTimeout(resizeTimer);
+
         resizeTimer = setTimeout(resize, 200);
-    });
 
-})();
+      });
 
+    })();
 
-
-
-
-
-
-
-
-
-</script>
+  </script>
 
 </body>
-
 </html>
